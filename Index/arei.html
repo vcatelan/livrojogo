@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang= "pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>O RETORNO DO REI ELFO</title>
+	<link rel="icon" href="../img/dado.png">
+	<link rel="stylesheet" type="text/css" href="../CSS/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/capa.css">
+</head>
+
+<body class="fundo">
+
+	<script type="text/javascript">
+		function show(n) {
+			for (var i=0; i<=83; i++) {
+				console.log(i)
+				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
+			}
+		}
+		let personagemString = localStorage.getItem('personagem')
+		let personagemObj = JSON.parse(personagemString)
+		setTimeout(() => {	
+			document.querySelector('#ficha').innerHTML = `
+				<p>Raça: ${personagemObj.nome}</p>
+				<p>Classe: ${personagemObj.classe}</p>
+				<p>Dom: ${personagemObj.dom}</p>
+				<p>Combate: ${personagemObj.combate}</p>
+				<p>Habilidade: ${personagemObj.habilidade}</p>
+				<p>PV: ${personagemObj.pv}</p>
+				<p>PM: ${personagemObj.pm}</p>
+				<p>Vantagem: ${personagemObj.vantagem}</p>	
+			`
+		}, 1000);
+	</script>
+</body>
+

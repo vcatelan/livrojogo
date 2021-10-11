@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang= "pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RAÇAS</title>
+	<link rel="icon" href="../img/dado.png">
+	<link rel="stylesheet" type="text/css" href="../CSS/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/racas.css">
+</head>
+
+<body class="fundo">
+	
+	<nav>
+    <ul class="menu">
+     <li>
+	    <a href="../Index/inicio.html#"><b>O JOGO</b></a>
+     </li>
+	   <li>
+	  	<a href="../Index/personagem.html#"><b>CRIANDO SEU PERSONAGEM</b></a><br>
+			
+		    <ul class="sub-menu">
+				 <li>
+				  <a href="../Index/raças.html#"><b>RAÇAS</b></a>
+				 </li>
+				 <li>
+				  <a href="../Index/classes.html#"><b>CLASSES</b></a>
+				 </li>
+				 <li>
+				  <a href="../Index/vantagens.html#"><b>DONS E VANTAGENS</b></a>
+				 </li>
+				</ul>
+		 </li> 
+<!-- 		 <li>
+	    <a href="../Index/ficha.html#"><b>FICHA</b></a>
+	   </li> -->
+	   <li>
+	    <a href="../Index/aventuras.html#"><b>AVENTURAS</b></a>
+	   </li>
+	  </ul>	 
+	</nav>
+
+
+	<p class="intro">Não só de humanos vivem os mundos de fantasia, que costumam contar com uma diversidade de raças muito grande. Cada raça possui sua particularidade, cultura, idioma e organização social. Em nossas aventuras, iremos utilizar as mais conhecidas. Abaixo você pode conhecer quais são, e algumas curiosidades sobre elas.</p>
+
+	<div class="cardanao" onclick="escolherRaca('anao')">
+		<div class="basea">
+			<div class="tipoa"> 
+				<p>ANÃO</p>
+			</div>
+			<div class="fotoa"> 
+				<img class="anao" src="../img/anão.jpg">
+			</div>
+			<div class="nomea"> 
+				<p>"Só mais uma caneca de cerveja e vamos!"</p>
+			</div>
+			<div class="descricaoa"> 
+				<p>Anões são criaturas baixas e robustas. São bons mineradores em seu geral e são bons com marretas e machados. Não passam de um metro e meio em sua maioria e são muito pregados a sua crença e seus ancestrais. <br><br>
+					<!-- O Minotauro recebe:<br> -->
+					<b>COMBATE: 08</b><br>
+					<b>HABILIDADE: 06</b><br>
+					<b>PV: 15</b><br>
+					<b>PM: 05</b>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="cardelfo" onclick="escolherRaca('elfo')">
+		<div class="basee">
+			<div class="tipoe"> 
+				<p>ELFO</p>
+			</div>
+			<div class="fotoe"> 
+				<img class="elfo" src="../img/elfo.jpg">
+			</div>
+			<div class="nomee"> 
+				<p>"Apenas o natural é essencial!</p>
+			</div>
+			<div class="descricaoe"> 
+				<p>Elfos são criaturas graciosas e de grande inteligência. Sua longevidade os faz ignorar assuntos mundanos. São geralmente loiros e muito belos, tem talentos com arcos e magias da natureza.<br><br>
+			<!-- 		O Minotauro recebe:<br> -->
+					<b>COMBATE: 07</b><br>
+					<b>HABILIDADE: 07</b><br>
+					<b>PV: 05</b><br>
+					<b>PM: 10</b>
+				</p>
+			</div>
+		</div>
+	</div>	
+
+	<div class="cardhalfling" onclick="escolherRaca('halfling')">
+		<div class="baseha">
+			<div class="tipoha"> 
+				<p>HALFLING</p>
+			</div>
+			<div class="fotoha"> 
+				<img class="halfling" src="../img/halfling.jpg">
+			</div>
+			<div class="nomeha"> 
+				<p>"Vocês se preocupam demais!"</p>
+			</div>
+			<div class="descricaoha"> 
+				<p>São criaturas extremamente pequenas chegando a no maximo 90 centímetros de altura, muito bons e leais, cativam a qualquer um. Estão sempre rodeados de amigos e comida.  <br><br>
+					<!-- O Minotauro recebe:<br> -->
+					<b>COMBATE: 06</b><br>
+					<b>HABILIDADE: 09</b><br>
+					<b>PV: 05</b><br>
+					<b>PM: 05</b>
+				</p>
+			</div>
+		</div>
+	</div>	
+
+	<div class="cardhumano" onclick="escolherRaca('humano')">
+		<div class="basehu">
+			<div class="tipohu"> 
+				<p>HUMANO</p>
+			</div>
+			<div class="fotohu"> 
+				<img class="humano" src="../img/humano.jpg">
+			</div>
+			<div class="nomehu"> 
+				<p>"Prazer em servir, meu senhor!""</p>
+			</div>
+			<div class="descricaohu"> 
+				<p>Humanos são os mais populosos, e por isso, são os que melhor se adaptam em qualquer situação. Por sua grande dedicação, conseguem desempenhar qualquer papel com maestria na sociedade.<br><br>
+					<!-- O Minotauro recebe:<br> -->
+					<b>COMBATE: 07</b><br>
+					<b>HABILIDADE: 07</b><br>
+					<b>PV: 10</b><br>
+					<b>PM: 10</b>
+				</p>
+			</div>
+		</div>
+	</div>	
+
+	<div class="cardgenio" onclick="escolherRaca('meiogenio')">
+		<div class="basemg">
+			<div class="tipomg"> 
+				<p>MEIO GÊNIO</p>
+			</div>
+			<div class="fotomg"> 
+				<img class="genio" src="../img/genio.jpg">
+			</div>
+			<div class="nomemg"> 
+				<p>"Existe magia em tudo!"</p>
+			</div>
+			<div class="descricaomg"> 
+				<p>Meio Gênios são criaturas intrigantes. Tem seus cabelos lembrando nuvens ou labaredas, e sua pele em tons de azul, verde, vermelho e amarelo. Por seu ancestral mágico, são vistos com bons olhos por todos.<br><br>
+					<!-- O Minotauro recebe:<br> -->
+					<b>COMBATE: 05</b><br>
+					<b>HABILIDADE: 08</b><br>
+					<b>PV: 05</b><br>
+					<b>PM: 15</b>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="cardminotauro" onclick="escolherRaca('minotauro')">
+		<div class="basem">
+			<div class="tipom"> 
+				<p>MINOTAURO</p>
+			</div>
+			<div class="fotom"> 
+				<img class="minotauro" src="../img/minotauro.jpg">
+			</div>
+			<div class="nomem"> 
+				<p>"A força bruta é sempre uma opção!"</p>
+			</div>
+			<div class="descricaom"> 
+				<p>Minotauros são criaturas de força bruta. Medem entre 1,80 e 2 metros e pesam mais de 100kg. São em sua maioria orgulhosos e não confiam com facilidade e há somente Minotauros do sexo masculino.<br><br>
+					
+					<!-- O Minotauro recebe:<br> -->
+					<b>COMBATE: 09</b><br>
+					<b>HABILIDADE: 05</b><br>
+					<b>PV: 10</b><br>
+					<b>PM: 05</b>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script src="../JS/etnia.js"></script>
+	<script src="../JS/profissao.js"></script>
+	<script src="../JS/vantagens.js"></script>
+</body>

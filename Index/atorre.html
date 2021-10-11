@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang= "pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A TORRE DE LUGAR NENHUM</title>
+	<link rel="icon" href="../img/dado.png">
+	<link rel="stylesheet" type="text/css" href="../CSS/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/atorre.css">
+</head>
+
+<body class="fundo">
+
+	<script type="text/javascript">
+		function show(n) {
+			for (var i=0; i<=83; i++) {
+				console.log(i)
+				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
+			}
+		}
+		let personagemString = localStorage.getItem('personagem')
+		let personagemObj = JSON.parse(personagemString)
+		setTimeout(() => {	
+			document.querySelector('#ficha').innerHTML = `
+				<p>Raça: ${personagemObj.nome}</p>
+				<p>Classe: ${personagemObj.classe}</p>
+				<p>Dom: ${personagemObj.dom}</p>
+				<p>Combate: ${personagemObj.combate}</p>
+				<p>Habilidade: ${personagemObj.habilidade}</p>
+				<p>PV: ${personagemObj.pv}</p>
+				<p>PM: ${personagemObj.pm}</p>
+				<p>Vantagem: ${personagemObj.vantagem}</p>	
+			`
+		}, 1000);
+	</script>
+
+	<main>
+	— É isso mesmo que você ouviu. O céu se abriu em um rasgo esverdeado, e do buraco, veio essa torre.
+	O pastor de ovelhas parecia mais empolgado a cada vez que contava a história. Você ouviu o boato por uma taverna que passou e algo em você despertou o interesse de investigar aquele fenômeno. Você pensou em questionar o homem, mas não tem tempo, pois ele retoma a história ainda mais empolgado.
+	— Aquela imensa torre de tijolos, caiu como se sempre existisse lá. Nem uma pedra ou telha caiu quando ela bateu no chão. É como se ela sempre tivesse existido lá. 
+	Você escuta o homem contar sobre como seu pequeno rebanho de ovelhas foi esmagado pela torre, mas isso parece não deixa-lo incomodado.
+	Assim que o assunto começa a se perder em um outro sem importância, você decide encerrar a conversa jogando uma moeda para o camponês. Ele percebe o recado, mas não demonstra se incomodar. Assim que você se vira para ir, ouve a voz do homem mais uma vez:
+	— Ah, mais uma coisa. Alguns poucos aventureiros foram investigar esse mistério, e nenhum deles foi visto outra vez. Adeus meu amigo. E cuidado.
+	Você não pode deixar de notar um tom irônico na última frase do homem, mas sem dar muita importância, você decide seguir, já que está há poucas horas do local. Vá para 01.
+	
+	01. Você caminha por aproximadamente uma hora embaixo do sol quente, mas a brisa fresca ajuda a amenizar o seu desgaste. Você está começando a avaliar a probabilidade de montar acampamento quando avista a torre ao longe. Pela distância, você calcula que em uma hora você esteja em frente a Torre, mas o terreno não parece lhe impor muitas dificuldades, então você acredita que se forçar a marcha, pode chegar em metade do tempo. Se você preferir seguir em um ritmo normal, vá para 02. Caso queira forçar a caminhada, vá para 03.
+	02. Você acredita que poupar energia é a melhor opção no momento, já que não sabe quais tipos de desafio irá encontrar. Passada quase uma hora, você se vê em frente a Torre, e descansado o suficiente para enfrentar esse desafio. Vá para 04.
+	03. Ansioso para chegar logo, você aperta o ritmo de sua caminhada e acaba não percebendo um pequeno buraco mais à frente e você acaba torcendo o pé. Mancando e amaldiçoando-se pelo seu azar, você continua seu caminho, até se ver de frente com a Torre. Vá para 04.
+	04. Você fica impressionado com o fato daquela torre parecer estar ali há anos. Ramos crescem em meio as pedras que formam o caminho até a entrada. Não há nenhuma marca no chão que mostre que algo pesado como aquela houvesse aparecido assim, de repente, ainda mais caindo do céu.
+	A Torre é circular e toda feita em pedra, e deve ter no máximo sete metros de altura. Um pequeno jardim bem aparado toma o redor do lugar e faz uma pequena trilha até a entrada. Chama sua atenção ter uma única janela, que pode ser vista próximo ao topo.
+	Parado em frene a Torre, você planeja seu plano de ação. Caso você queira ir direto em direção da porta, vá para 05. Já, se você achar melhor circular o lugar e ver se tem alguma outra opção de caminho, vá para 06. 
+	06. Você decide dar uma olhada em volta e se certificar de que não tem alguma outra entrada, ou perigo rondando o lugar. Tomando todo o cuidado para não deixar passar nenhuma informação que possa ser importante, você segue circulando a Torre. Passados alguns minutos, você está começa a repensar sua decisão quando repara que uma das pedras da parede da Torre parece ter alguma coisa marcada nela. Assim que você se aproxima, consegue ler algo que foi entralhado nela:
+	“No final, tudo é ilusão! ”
+	Mesmo sem entender, você decide que é melhor lembrar dessa informação e segue seu caminho, chegando de volta a entrada principal do lugar. Vá para 05.
+	05. Você se dirige para a entrada. As flores que margeiam o caminho têm um cheiro agradável e são de vários tipos e cores, dando a impressão de ser um lugar amistoso. Quando você se dá conta, já está em frente a uma pesada porta de madeira.
+	A portão tem fechadura nem maçaneta, mas no centro dela, três espaços com números em roldanas. Uma placa, ao lado da porta, a algumas orientações de como resolver o enigma.
+	 
+	Insira a referência correspondente a seguir para entrar na torre. 042.
+	042. Quando você passa pela porta, parece que foi tele transportado para um lugar completamente diferente. A sala que você se encontra não corresponde ao espaço que você via pelo lado de fora. Ao invés de ser uma sala circular como a torre indicava pelo lado de fora, agora você se vê em uma sala retangular, dividida em duas, com um fosso no centro. Do outro lado do fosso, uma passagem em arco é a única saída visível. Você calcula que com um impulso consegue chegar do outro lado, então você se prepara e salta. Faça um teste de HABILIDADE. Caso tenha sucesso, vá para 07. Se falhar, vá para 08.
+	08. Você se ajeita e dispara em direção ao fosso, medindo o espaço pronto para pular, mas no último momento seu pé escorrega e você perde o equilíbrio. Infelizmente você não tem tempo de reagir, e cai no fosso por alguns minutos, até sentir seu corpo bater contra o chão, e terminar sua aventura de forma prematura.
+	07. Você se ajeita e dispara em direção ao fosso, medindo o espaço pronto para pular. Assim que chega no ponto certo, tenciona seus músculos e força o corpo em um salto. Por um momento você acha que calculou mal, mas seu corpo aterrissa do outro lado sem nenhum susto. Você se dirige para a passagem em arco. Vá para 09.
+	09. A passagem em arco dá acesso a uma sala com algumas caixas e itens velhos acumulados, como tapetes, algumas armas enferrujadas, livros e pergaminhos cheios de pós. A sua impressão é de que ali é um depósito ou coisa do tipo. Do outro lado da sala, você vê uma escada que dá acesso ao próximo andar. Você quer ver se tem alguma coisa interessante entre os itens? Em caso positivo, vá para 10. Caso queira ignora-los, e seguir direto para a escada, vá para 11.
+	10. Você segue para a pilha de itens mantendo uma certa cautela. A princípio você olha de longe, buscando algo que possa lhe chamar a atenção, as quando percebe que não há perigo, chega mais próximo. Quais itens você quer ver? Caso queira ver os livros, vá para 12. Já, se quiser as peças de armadura, vá para 13. Caso prefira olhar as armas primeiro, vá para 14. 
+	12. A maioria dos livros e pergaminhos são escritos em um idioma que você nunca viu. Você está quase desistindo, quando acha um bilhete escrito “... Apesar do fedor, o Basilisco se mostrou eficiente”. Você coloca o bilhete no bolso e volta a olhar alguns outros documentos, mas nenhum outro chama sua atenção. Caso ainda não tenha feito, você pode olhar as peças de armaduras indo para 13 ou olhar as armas em 14. Já, se quiser deixar esses itens e seguir para a escada, vá para 11.
+	13. As armaduras parecem ter vindo de vários lugares diferentes, mas infelizmente você não encontra nenhuma peça que lhe chame a atenção como algo realmente útil. Caso ainda não tenha feito, você pode olhar os livros e pergaminhos, indo para 12 ou as armas em 14. Se já tiver olhado tudo, ou queira seguir o mais rápido possível para o próximo andar, vá para 11. 
+	14. As armas estão em sua maioria enferrujadas, mas uma adaga chama sua atenção. Ela é feita em um aço escuro, e em seu cabo detalhes em esmeraldas e rubis chamam sua atenção. Decidindo que ela deva ter algum valor fora da torre, você a coloca em sua mochila. Caso ainda não tenha feito, você pode olhar os livros indo para 12 ou as armaduras em 13. Se já tiver feito tudo, decide seguir para a escada. Vá para 11. 
+	(XX. Acreditando que já perdeu tempo o suficiente olhando os itens, você decide seguir para a escada. Vá para XX.)
+	11. Indo em direção a escada, você passa pela armadura, que parece olhar para você. Vá para 15.
+	15. Assim que você chega próximo o suficiente da armadura ela toma vida e lhe ataca. Você consegue reagir a tempo, desviando do ataque por um triz. Derrote a armadura para poder prosseguir.
+	Armadura Animada 		Combate XX		Pontos de Vida XX
+	Quando vencer a Armadura, vá para 16.
+	16. A armadura cai em pedaços no chão. Você espera alguns segundos esperando para ver se ele irá se levantar mais uma vez, mas ela permanece imóvel. Você então segue para a escada, em direção ao próximo andar. Vá para 17.
+	17. Assim que você chega no próximo piso, sente um cheio forte de alguma coisa podre. Instintivamente você tampa o nariz com uma das mãos e cerra um pouco os olhos. Chegando ao patamar da escada, você consegue ver do outro lado da sala a escada que leva ao próximo andar. Você achou algum bilhete até agora? Se sim, vá para 18. Caso não, vá para 19.
+	18. Lembrando do bilhete, você acredita que o Basilisco deve estar naquele piso. Você sabe que esse tipo de criaturas tem o poder de transformar em pedra aquelas que olha direto para ele. Você então calcula o trajeto até a próxima escada e corre na direção dela com os olhos fechados. Quando você passa pela sala, pode ouvir o guincho de um animal e o barulho de correntes. Torcendo para que tudo acabe logo, você sente o corrimão da escada, e agradecendo sua boa sorte sobe para o próximo andar. Vá para 20.
+	19. Você entra na sala e percorre o espaço com os olhos em busca de perigo. A sala está vazia, a não ser por uma pilha de ossos e carne podre em um dos cantos, e uma criatura que está acorrentada, de costas para você. Ela é um lagarto grande, mas lascas de pedra toma o lugar de algumas escamas. Você sabe que está de frente com um Basilisco, uma criatura que pode tornar em pedra qualquer um que ela olhe. Você faz menção em correr, mas percebendo sua presença a criatura vira para você. Faça um teste de HABILIDADE. Caso tenha sucesso, vá para 21. Caso não consiga, vá para 22.
+	21. Você consegue reagir rápido e tampar os olhos com uma das mãos, e recua em direção a escada. Você pode ouvir o guincho do animal e o barulho de correntes. Torcendo para que tudo acabe logo, você sente o corrimão da escada, e agradecendo sua boa sorte sobe para o próximo andar. Vá para 20.
+	22. Você não tem tempo de desviar o olhar, e seus olhos cruzam com os da criatura. Você se vira para tentar correr, mas infelizmente é tarde demais. Seu corpo começa a enrijecer, e agora você é uma estátua da Torre eu veio de lugar algum.
+	20. Você se sente aliviado por ter chego ao andar seguinte e respira por alguns segundos antes de seguir. 23. 
+	23. 
+	45. O mago emite um grito de dor enquanto o seu corpo começa a emitir fachos de uma luz amarelada. O seu corpo cai sem vida no chão, assumindo uma forma diferente, com pele em um tom vermelho escura e chifres. Aquela criatura demoníaca assumiu outra forma através de uma ilusão e tomou aquele lugar para si. Você percebe que a ilusão também afetava a Torre. As paredes luxuosas agora dão lugar a pedra fria, com musgos e rachaduras. A única coisa que se mantem da mesma maneira é um pequeno baú, que você pega e corre em direção da escada, pensando em sair daquele lugar o mais rápido possível.
+	Quando você passa pela porta para fora da Torre, sente um pequeno alívio. As flores, que antes indicavam o caminho, agora não passam de folhas mortas e secas. Dando uma última olhada para trás, o lugar que antes tinha um ar imponente, agora parece abandonado há anos. Você se afasta mais um pouco e checa o baú que trouxe de dentro da Torre. Dentro dele, você encontra uma pequena fortuna em peças preciosas. Ao final de tudo, a aventura valeu a pena.
+	</main>
+
+</body>
