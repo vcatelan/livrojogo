@@ -1,0 +1,520 @@
+.fundo {
+display: flex;
+flex-wrap: wrap;
+padding-right: 0px;
+margin-right: 8px;
+margin-left: 58px;
+margin-bottom: 28px;
+background-image: url(../img/fundo.jpg);
+background-attachment: fixed;
+background-size: 125%;
+background-repeat: no-repeat;
+}
+
+.menu{
+list-style:none; 
+float:left; 
+/*margin-left: 245px;*/
+}
+
+.menu li{
+position:relative; 
+float:left; 
+}
+
+.menu li a{color:black; text-decoration:none; padding: 0px 30px; display:block;}
+
+nav ul ul {
+    display: none;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+nav {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.intro {
+font-size: 18px;
+text-align: justify;
+position: center;
+margin-right: 50px;
+margin-bottom: 0px;
+}
+
+
+.cardanao{
+	display: flex;
+}
+
+.basea {
+background-color: #663300;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipoa {
+background-color: #cca978; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipoa p{
+font-weight: bold;
+}
+
+.fotoa {
+background-color: #cca978;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.anao {
+width: 100%;
+height: 235px;
+margin-top: 25px;
+margin-right: -25px;
+}
+
+.nomea {
+background-color: #cca978;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaoa {
+background-color: #cca978;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaoa p {
+padding: 12px;
+}
+
+
+.cardelfo{
+	display: flex;
+}
+
+.basee {
+background-color: #666600;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipoe {
+background-color: #a0a000; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipoe p{
+font-weight: bold;
+}
+
+.fotoe {
+background-color: #a0a000;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.elfo {
+width: 100%;
+height: 260px;
+margin-top: 65px;
+margin-right: -5px;
+}
+
+.nomee {
+background-color: #a0a000;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaoe {
+background-color: #a0a000;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaoe p {
+padding: 12px;
+}
+
+.cardhalfling{
+	display: flex;
+}
+
+.baseha {
+background-color: #78866b;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipoha {
+background-color: #7ba05b; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipoha p{
+font-weight: bold;
+}
+
+.fotoha {
+background-color: #7ba05b;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.halfling {
+width: 100%;
+height: 300px;
+margin-top: 50px;
+margin-right: -45px;
+}
+
+.nomeha {
+background-color: #7ba05b;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaoha {
+background-color: #7ba05b;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaoha p {
+padding: 12px;
+}
+
+.cardhumano{
+	display: flex;
+}
+
+
+.basehu {
+background-color: #e6de96;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipohu {
+background-color: #ffe4b5; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipohu p{
+font-weight: bold;
+}
+
+.fotohu {
+background-color: #ffe4b5;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.humano {
+width: 100%;
+height: 300px;
+margin-top: 75px;
+margin-right: -45px;
+}
+
+.nomehu {
+background-color: #ffe4b5;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaohu {
+background-color: #ffe4b5;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaohu p {
+padding: 12px;
+}
+
+
+.cardmg {
+	display: flex;
+}
+
+.basemg {
+background-color: #9959d9;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipomg {
+background-color: #dda0dd; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipomg p{
+font-weight: bold;
+}
+
+.fotomg {
+background-color: #dda0dd;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.genio {
+width: 103%;
+height: 300px;
+margin-top: 60px;
+margin-right: -45px;
+}
+
+.nomemg {
+background-color: #dda0dd;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaomg {
+background-color: #dda0dd;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaomg p {
+padding: 12px;
+}
+
+.basem {
+background-color: #3d2b1f;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipom {
+background-color: #8b5742; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipom p{
+font-weight: bold;
+}
+
+.fotom {
+background-color: #8b5742;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.minotauro {
+width: 100%;
+height: 250px;
+margin-top: 0px;
+margin-right: 0px;
+}
+
+.nomem {
+background-color: #8b5742;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaom {
+background-color: #8b5742;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaom p {
+padding: 12px;
+}
+

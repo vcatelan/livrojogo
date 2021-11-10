@@ -1,0 +1,570 @@
+.fundo {
+display: flex;
+flex-wrap: wrap;
+padding-right: 0px;
+margin-right: 8px;
+margin-left: 58px;
+margin-bottom: 28px;
+background-image: url(../img/fundo.jpg);
+background-attachment: fixed;
+background-size: 125%;
+background-repeat: no-repeat;
+}
+
+.menu{
+list-style:none; 
+float:left; 
+/*margin-left: 245px;*/
+}
+
+.menu li{
+position:relative; 
+float:left; 
+}
+
+.menu li a{color:black; text-decoration:none; padding: 0px 30px; display:block;}
+
+nav ul ul {
+display: none;
+}
+nav ul li:hover > ul {
+display: block;
+}
+nav {
+margin: 0 auto;
+text-align: center;
+}
+
+.intro {
+font-size: 18px;
+text-align: justify;
+position: center;
+margin-right: 50px;
+margin-bottom: 0px;
+}
+
+/*CLÉRIGO*/
+
+.cardclerigo {
+display: flex;
+}
+
+.cardclerigo.isSwitched .cardWrapper {
+animation: rotate 0.5s linear both; 
+}
+
+.cardclerigo.isSwitched .basec {
+display: none;
+}
+
+.cardWrapper { 
+	transform-style: preserve-3d; 
+	animation: rotate-inverse 0.5s linear both;
+ }
+
+.basec {
+background-color: #36a8b8;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+top: 0;
+left: 0;
+}
+
+.basec.isActive {
+position: static;
+backface-visibility: hidden;
+position: absolute;
+}
+
+.basec.isbackCard {
+transform: rotateY(180deg);
+}
+
+.tipoc{
+background-color: #9bd1d8; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipoc p{
+font-weight: bold;
+}
+
+.fotoc{
+background-color: #add8e6;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.clerigo {
+width: 100%;
+height: 500px;
+margin-top: 120px;
+margin-right: -45px;
+}
+
+.nomec {
+background-color: #add8e6;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaoc {
+background-color: #add8e6;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaoc p{
+padding: 12px;
+}
+
+.trasclerigo {
+width: 80%;
+padding-left: 33px;
+}
+
+
+
+/*DRUIDA*/
+
+.cardruida{
+	display: flex;
+}
+
+.based {
+background-color: #006400;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipod {
+background-color: #78866b; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipod p{
+font-weight: bold;
+}
+
+.fotod {
+background-color: #78866b;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.druida {
+width: 120%;
+height: 450px;
+margin-top: 150px;
+margin-right: -45px;
+}
+
+.nomed {
+background-color: #78866b;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaod {
+background-color: #78866b;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaod p {
+padding: 12px;
+}
+
+
+/*GUERREIRO*/
+
+.cardguerreiro {
+display: flex;
+}
+
+.baseg {
+background-color: #e61919;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipog {
+background-color: #f5afa3; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipog p{
+font-weight: bold;
+}
+
+.fotog {
+background-color: #f5afa3;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.guerreira {
+width: 100%;
+height: 290px;
+margin-top: 60px;
+margin-right: -45px;
+}
+
+.nomeg {
+background-color: #f5afa3;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+}
+
+.descricaog {
+background-color: #f5afa3;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;	
+align-items: center;
+text-align: justify;
+}
+
+.descricaog p {
+padding: 12px;
+}
+
+
+.cardladino {
+display: flex;
+}
+
+.basel {
+background-color: #565b5d;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipol {
+background-color: #c7c7bf ; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipol p {
+font-weight: bold;
+}
+
+.fotol{
+background-color: #c7c7bf ;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 200px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.ladino {
+width: 100%;
+height: 220px;
+margin-top: 15px;
+margin-right: -45px;
+}
+
+.nomel {
+background-color: #c7c7bf;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+}
+
+.descricaol {
+background-color: #c7c7bf;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+text-align: justify;
+}
+
+.descricaol p {
+padding: 12px;
+}
+
+
+.cardmago {
+display: flex;
+}
+
+.basem {
+background-color: #ccac00 ;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipom {
+background-color: #f2f093; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipom p {
+font-weight: bold;
+}
+
+.fotom {
+background-color: #f2f093;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 200px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.mago {
+width: 100%;
+height: 400px;
+margin-top: 180px;
+margin-right: -45px;
+}
+
+.nomem {
+background-color: #f2f093;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+}
+
+.descricaom {
+background-color: #f2f093;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+text-align: justify;
+}
+
+.descricaom p {
+padding: 12px;
+}
+
+.cardpaladino {
+display: flex;
+}
+
+.basep {
+background-color: #dcdcdc;
+border-radius: 10px;
+border: 2px solid black;
+width: 350px;
+height: 500px;
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.tipop {
+background-color: #ffffff; 
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+}
+
+.tipop p {
+font-weight: bold;
+}
+
+.fotop {
+background-color: #ffffff;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 200px;
+display: flex;
+margin: 10px auto 0;
+justify-content: center;	
+align-items: center;
+overflow: hidden;
+}
+
+.paladino {
+width: 100%;
+height: 450px;
+margin-top: 250px;
+margin-right: -5px;
+}
+
+.nomep {
+background-color: #ffffff;
+border-radius: 10px;
+border: 2px solid black;
+height: 30px;
+width: 90%;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+}
+
+.descricaop {
+background-color: #ffffff;
+border-radius: 10px;
+border: 2px solid black;
+width: 90%;
+height: 195px;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+text-align: justify;
+}
+
+.descricaop p {
+padding: 12px;
+}
+
+@keyframes rotate { 
+	0% { transform: rotateY(0); }
+	70% { transform: rotateY(200deg); } 
+	100% { transform: rotateY(180deg); } 
+	} 
+@keyframes rotate-inverse { 
+	0% { transform: rotateY(180deg); } 
+	70% { transform: rotateY(-20deg); } 
+	100% { transform: rotateY(0); } 
+}
