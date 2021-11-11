@@ -54,7 +54,7 @@ img {
     padding: 15px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 .menu a {
@@ -77,6 +77,9 @@ img {
 .menu-nav a:hover {
     color: #c2d4e0;
 }
+.ficha h2, h3 {
+    justify-content: center;
+}
 .card-base {
     border-radius: 10px;
     border: 2px solid #3d2b1f;
@@ -88,14 +91,28 @@ img {
     margin: 10px;
     flex-direction:column;
     display: flex;
+    padding: 30px;
 }
-.racas{
+.card-base-v {
+    border-radius: 10px;
+    border: 2px solid #3d2b1f;
+    width: 250px;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: 20px;
+    flex: 1 1 175px;
+    margin: 10px;
+    flex-direction:column;
+    display: flex;
+}
+.raca {
     display: flex;
     flex-wrap: wrap;
     align-items:center;
 }
 .race {
     height: 215px;
+    border: 2px solid #3d2b1f;
 }
 .classes {
     display: flex;
@@ -104,12 +121,32 @@ img {
 }
 .class {
     height: 215px;
+    border: 2px solid #3d2b1f;
+}
+.vantagem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+}
+.vantagens{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;  
+    margin: 0 auto;
 }
 .citacao {
     font-size: 1em;
 	line-height: 1;
 	margin-bottom: 1em;
 	color: #462d14;  
+    padding: 15px 10px;
+    margin: 0 auto;
+}
+.icone {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border: 2px solid #3d2b1f;
 }
 .rodape {
     position: fixed;
@@ -117,7 +154,7 @@ img {
     right: 0;
     margin-left: 573px;
 }
-.modalDialog {
+.aviso {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
     top: 0;
@@ -132,11 +169,11 @@ img {
     transition: opacity 400ms ease-in;
     pointer-events: none;
 }
-.modalDialog:target {
+.aviso:target {
     opacity: 1;
     pointer-events: auto;
 }
-.modalDialog > div {
+.aviso > div {
     width: 400px;
     position: relative;
     margin: 10% auto;
