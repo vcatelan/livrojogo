@@ -1,6 +1,10 @@
 body {
     font-family: "Nunito", Helvetica, Arial, sans-serif;
+<<<<<<< HEAD
     background-color:  #fdecb8;
+=======
+    background-color:  #e0c9a6;
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
 }
 body, h1, h2, p, ul, li, a {
 	margin: 0px;
@@ -9,13 +13,20 @@ body, h1, h2, p, ul, li, a {
 h1, h2, h3 {
 	line-height: 1.4;
 	margin-bottom: 1em;
+<<<<<<< HEAD
 	color: #462d14;  
+=======
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
 }
 p{
     font-size: 1.1em;
 	line-height: 1.4;
 	margin-bottom: 1em;
+<<<<<<< HEAD
 	color: #462d14;  
+=======
+	color: black;  
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
 }
 ul {
 	list-style: none;
@@ -45,15 +56,23 @@ img {
 .raca, .classes .vantagem {
     margin-bottom: 2px solid black;
 }
+<<<<<<< HEAD
 .menu-bg {
     background: #3d2b1f;
 }
 .menu {
+=======
+.menu-bg{
+    background: #736154;
+}
+.menu{
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
     max-width: 960px;  
     margin: 0 auto;
     padding: 15px 0;
     display: flex;
     flex-wrap: wrap;
+<<<<<<< HEAD
     justify-content: space-evenly;
     align-items: center;
 }
@@ -61,20 +80,38 @@ img {
     color:#e0c9a6;
 }
 .menu-logo a {
+=======
+    justify-content: space-between;
+    align-items: center;
+}
+.menu a{
+    color:#e0c9a6;
+}
+.menu-logo a{
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
     font-size: 2.25em;
     font-weight: bold;
     margin: 0 10px;
 }
+<<<<<<< HEAD
 .menu-nav ul {
     display: flex;
     flex-wrap: wrap;
 }
 .menu-nav a {
+=======
+.menu-nav ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu-nav a{
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
     font-size: 1.25em;
     display: block;
     padding: 10px;
 }
 .menu-nav a:hover {
+<<<<<<< HEAD
     color: #c2d4e0;
 }
 .card-base {
@@ -112,6 +149,11 @@ img {
 	color: #462d14;  
 }
 .rodape {
+=======
+    color: black;
+}
+.rodape  {
+>>>>>>> d83fab0c13191b7ec0401a17e6c37522f5bff088
     position: fixed;
     bottom:0;
     right: 0;
