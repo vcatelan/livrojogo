@@ -32,7 +32,7 @@ img {
 	margin: 0 auto;
 	padding: 60px 10px;
 }
-.introducao {
+.container {
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 60px 10px;
@@ -83,7 +83,7 @@ img {
 .card-base {
     border-radius: 10px;
     border: 2px solid #3d2b1f;
-    width: 250px;
+    width: 235px;
     height: 300px;
     margin-top: 20px;
     margin-left: 20px;
@@ -147,6 +147,12 @@ img {
     width: 200px;
     margin: 0 auto;
     border: 2px solid #3d2b1f;
+}
+.dificuldade {
+    width: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .rodape {
     position: fixed;
