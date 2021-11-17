@@ -1,6 +1,6 @@
 body {
     font-family: "Nunito", Helvetica, Arial, sans-serif;
-    background-color:  #fdecb8;
+    background-color:  #f9f2cf;
 }
 body, h1, h2, p, ul, li, a {
 	margin: 0px;
@@ -22,6 +22,7 @@ ul {
 }
 a {
 	text-decoration: none;
+    margin: 0 auto;
 }
 img {
 	display: block;
@@ -33,9 +34,9 @@ img {
 	padding: 60px 10px;
 }
 .container {
-	max-width: 960px;
+    max-width: 960px;
 	margin: 0 auto;
-	padding: 60px 10px;
+	padding: 60px 10px;  
 }
 .ficha {
     max-width: 960px;
@@ -81,6 +82,7 @@ img {
     justify-content: center;
 }
 .card-base {
+    background-color: #fdecb8;
     border-radius: 10px;
     border: 2px solid #3d2b1f;
     width: 235px;
@@ -94,9 +96,10 @@ img {
     padding: 30px;
 }
 .card-base-v {
+    background-color: #fdecb8;
     border-radius: 10px;
     border: 2px solid #3d2b1f;
-    width: 250px;
+    width: 235px;
     height: 300px;
     margin-top: 20px;
     margin-left: 20px;
@@ -104,6 +107,7 @@ img {
     margin: 10px;
     flex-direction:column;
     display: flex;
+    padding: 30px;
 }
 .raca {
     display: flex;
@@ -148,11 +152,20 @@ img {
     margin: 0 auto;
     border: 2px solid #3d2b1f;
 }
+.aventuras{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;  
+}
 .dificuldade {
-    width: 30px;
+    width: 20px;
+    height: 20px;
+    margin-left: 25PX;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    display: flex;
+    align-items:center;  
 }
 .rodape {
     position: fixed;
@@ -206,5 +219,5 @@ img {
     box-shadow: 1px 1px 3px #000;
 }
 .close:hover {
-    background: #00d9ff;
+    background: #c2d4e0;
 }
