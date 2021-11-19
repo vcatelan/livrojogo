@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shirink-to-fit=no">
+    <link rel="icon" href="./img/dado.png">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>A TORRE DE LUGAR NENHUM</title>
+</head>
+<body>
+    <header class="menu-bg">
+        <div class="menu">
+            <form name="meuForm" method="post" id="formulario">
+                <div class="box">
+                    <h1>Ficha de Personagem :</h1>
+            
+                    <label>
+                        <span>Nome Completo</span>
+                        <input type="text" class="input_text" name="nome" id="name"/>
+                    </label>
+            
+                    <label>
+                        <span>Email</span>
+                        <input type="text" class="input_text" name="email" id="email"/>
+                     </label>
+            
+                    <label>
+                        <span>Assunto</span>
+                        <input type="text" class="input_text" name="assunto" id="subject"/>
+                    </label>
+            
+                    <label>
+                        <span>Mensagem</span>
+                        <textarea class="message" name="feedback" id="feedback"></textarea>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </header>
+
+	<script type="text/javascript">
+		function show(n) {
+			for (var i=0; i<=83; i++) {
+				console.log(i)
+				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
+			}
+		}
+		let personagemString = localStorage.getItem('personagem')
+		let personagemObj = JSON.parse(personagemString)
+		setTimeout(() => {	
+			document.querySelector('#ficha').innerHTML = `
+				<p>Raça: ${personagemObj.nome}</p>
+				<p>Classe: ${personagemObj.classe}</p>
+				<p>Dom: ${personagemObj.dom}</p>
+				<p>Combate: ${personagemObj.combate}</p>
+				<p>Habilidade: ${personagemObj.habilidade}</p>
+				<p>PV: ${personagemObj.pv}</p>
+				<p>PM: ${personagemObj.pm}</p>
+				<p>Vantagem: ${personagemObj.vantagem}</p>	
+			`
+		}, 1000);
+	</script>
+	<main>
+		<div id="ficha">
+		</div>
+		<div id="text0" class="shown">
+			<h1>INTRODUÇÃO</h1>
+			<p>A chuva forte vem castigando sua viagem por toda a semana. Você se sente ensopado até os ossos, mas a sua maior preocupação é a de não ter visto nenhuma alma viva perambulando pela estrada desde que essa chuva começou.</p>
+			<p>Passam-se mais dois dias até que você encontra uma estalagem com algum sinal de vida. As luzes das velas tremulam fracas pelas frestas, o que é um bom sinal de que ela ainda está aberta. Mentalmente você calcula que as últimas moedas que tem na sua bolda devem servir para que você tenha uma refeição descente, e quem sabe até um banho com água quente.</p>
+			<p>A porta da taverna se abre e você vê uma cena deplorável. O taverneiro, um <i>minotauro</i> musculoso e de rosto retalhado, girava uma caneca no balcão com um dos dedos, enquanto segurava a cabeça com a outra mão. Em uma mesa perto de uma porta nos fundos, uma figurava afundada em seu próprio vômito murmurou alguma coisa por conta da rajada de ar frio que entrou no salão junto de você, mas lovo voltou ao seu sono nojento.</p>
+			<p>— Grrr ... — o minotauro grune levantando os olhos para você:</p>
+			<p>— Bem vindo a estalagem Farelos de Ossos. A pensão completa, com um quarto individual e um ensopado de legumes engrossado com pão custa uma peça de ouro. De qualquer forma entre um pouco, tome um gole de uma bebida forte e saia dessa maldita chuva.</p>
+			<p>O minotauro então se indireita atrás do balcão, pega a caneca que estava girando e a enche com o liquído grosso de uma garrafa que tirou de debaixo do balcão. Ele estica a caneca na sua direção enquanto da um longo gole direto da boca da garrafa. Logo que ele termina o gole, olha para você com o máximo de sorriso que as cicatrizes de seu rosto permitem, extendendo a mão em gesto convidativo para que você se aproxime.</p>
+			<p>Seu instinto é o de recusar a bebida de um estranho qualquer, mesmo que seja o taverneiro. Mas as juntas entre suas roupas reclamam de frio e você decide que aquilo não pode ser pior do que a chuva que está lá fora. A bebida é grossa e desce lentamente por sua garganta, mas você sente ela esquentar o seu corpo pouco a pouco. Alguns minutos depois, vocês estão conversando sobre suas aventuras passadas, e o minotauro se mostra uma excelente companhia. Algumas canecas de hidromel depois, vocês já se sentem bem confortáveis na companhia um do outro.</p>
+			<p>Você acaba descobrindo que seu nome é <strong>Titus</strong>, e que no seu tempo de aventureiro ele liderou uma companhia de mercenários conhecida como <strong>Quebra Osso</strong>, nome que ele adaptou para sua taverna. Titus conta que precisou se aposentar de suas aventuras depois que em uma missão da companhia do Quebra Osso em que ele perdeu um pedaço de uma perna, o que começou a prejudicar sua movimentação entre as tropas, e por consequência, sua autoridade começou a ser questionada.</p>
+			<p>— Aqueles malditos armaram para mim. Fizeram eu aceitar um contrato para matar um monstro em um pântano. Os homens de meu grupo pensaram que eu iria afundar naquele buraco até morrer. Mas eles se deram mal, eu fiz de tudo para que continuasse no mesmo rítimo. Logo que encontramos a criatura eles recuaram me deixando lutar sozinho, mas quando a fúria tomou meu corpo e quando minha vitória era quase certa o monstro conseguiu me acertar um golpe na minha perna manca e assim me derrubar. Para piorar minha perna postiça foi parar bem longe e eu a vi afundar no lodo. Vi quando meus homens correram rindo, e os amaldiçoei. — Titus deu um pequeno rosnado, só perseptivel pelo som grutual — Mas eu não tinha tempo para isso, tinha que sobreviver. Lutei com todas as minhas forças e quando venci, cai exausto. Devo ter dormido por dois dias ou mais e por sorte não me afoguei. Depois disso, pensei em procurar por eles, mas algo em mim disse que aquilo já não valia mais. Meu corpo pediu para que eu parasse. O resto é história e agora estou aqui. Só sei que aqueles malditos ...</p>
+			<p>Mas o minotauro não teve tempo de concluir. A porta da taverna abriu de uma vez. Uma <i>elfa</i>, com roupas puidas, rasgadas e cobertas de sangue seco entrou na taverna de uma vez, mas poucos passos depois desabou apontando para você. Clique <button  onClick="show(1)"><strong>aqui</strong></button> para continuar.</p>
+		</div>
+		<div id="text1" class="hidden">
+			<p>Titus pareceu ter esquecido que você estava em sua taverna. Logo que a elfa entrou seu semblante mudou. O minotauro parou de falar abruptamente, e não retomou o assunto, mesmo você buscando voltar a conversa. Você decide então seguir para seu quarto, e não liga de ter que prepara seu banho, mesmo tendo pago. Mesmo a água fria é melhor do que a água da chuva, então seu corpo consegue relaxar um pouco e você decide descansar. Após algumas horas, você acorda e percebe que já é noite. Forçando um pouco os ouvidos você percebe sons que não consegue distinguir vindo do salão da taverna. Caso queira investigar, clique <button onClick="show(2)"><strong>aqui</strong></button>. Caso deseje voltar a dormir, você clica <button onClick="show(3)"> <strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text2" class="hidden">
+			<p>Você se levanta e vai até a porta tentando não chamar a atenção. Você destranca a porta, mas ela faz mais barulho do que você gostaria. Faça um teste de HABILIDADE, caso tenha sucesso, você clica <button onclick="show(4)"><strong>aqui</strong></button>, caso falhe você clica <button onclick="show(5)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text4" class="hidden">
+			<p>Você força um pouco a porta contra o batente para evitar o barulho. Satisfeito, você vai até o salão. Para continuar, clique <button onclick= "show(6)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text5" class="hidden">
+			<p>Mesmo tentando segurar a porta ela range, fazendo você parar por alguns segundos. Não percebendo nada, você segue para o salão. Vá para Para continuar, clique <button onclick= "show(6)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text3" class="hidden">
+			<p> Você deita na cama e logo pega no sono. Durante a noite você tem um sonho estranho.  Nele, você se vê em uma sala oval, com camas de pedra por toda sua extensão. Nas camas, 4 mulheres, entre anãs, elfas, halflings, humanas e golias estão deitadas. Proximo a elas, 2 figuras encapuzadas erguem punhais. Você corre em direção a eles, mas não consegue chegar a tempo. As figuras começam a sacrificar as mulheres, uma a uma, sem que você conseguisse ajudar elas. Você acorda em um salto, suado e buscando sua arma. Quando percebe que ainda está na Ossos em Farelos, decide levantar e checar se a elfa ainda está lá. Para continuar, clique <button onclick= "show(6)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text6" class="hidden">
+			<p>Você chega ao salão principal da taverna e encontra a elfa sentada em uma das mesas. Titus está sentado ao lado dela, encostado na cadeira, com as mãos entrelaçadas e olhar de compaixão. A elfa está envolta em uma pele do que parece ser um urso, com uma caneca de alguma bebida quente nas mãos. Assim que o orc lhê vê, faz sinal para que você se aproxime. Você chega cauteloso e senta em uma cadeira oposta à eles, mirando seu melhor sorriso de empatia para a elfa. Ela retribui com um olhar perdido, e depois de alguns instantes volta a sua atenção para sua bebida quente. Titus faz um sinal com a cabeça para que você o acompanhe para longe dela, e então diz: — Ela ainda está em estado de choque, traumatizada. Balbuciou algumas coisas como  "pedra lunar" "ritual" e "grande poder" enquanto dormia, mas agora não consegue trocar meia duzia de palavras antes de cair perdida nos seus pensamentos. Prepareium chá para ela se acalmar, quem sabe consigo alguma coisa mais pra frente, mas acredito que possa ter acontecido alguma coisa séria por aqui por perto, já que além de você e ela, nenhuma outra criatura se arriscou a andar nessa chuva por esses dias. Tão logo Titus terminou de falar, a porta da taverna se abriu mas uma vez, mas agora para revelar um grupo de <i>goblins</i>. A elfa gritou em desespero, mas seus gritos foram abafados pelo das criaturas, que foram em sua direção. Com seu reflexo apurado, você consegue se colocar a frente deles, enquanto o minotauro mancou o mais rápído que pode na direção da elfa, para protegê-lá. Para lutar contras os goblins, clique <button onclick="show(7)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text7" class="hidden">
+			<p>Você só consegue acertar um goblin de cada vez em seu turno, mas todos eles te atacam no turno deles.</p> 
+			<p>GOBLIN: FORÇA 5 ; HABILIDADE 6 ; PV 5 </p>
+			<p>GOBLIN: FORÇA 5 ; HABILIDADE 6 ; PV 5 </p>
+			<p>GOBLIN: FORÇA 5 ; HABILIDADE 6 ; PV 5 </p>
+			<p></p>Caso vença, clique <button onclick="show(8)"><strong>aqui</strong></button>. Caso perca, clique <button onclick="show(9)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text8" class="hidden">
+			<p> Com as criaturas derrotadas, sua atenção se volta para a elfa e para Titus. O golias agora já colocava a elfa sentada de volta em uma cadeira. Pelo menos agora após o combate, a elfa parecia de volta a realidade. Você se aproxima deles, e para sua surpresa ela, mesmo com olhar assustado para você, lhe dirige a palavra:</p>
+			<p>— Eu sou <strong>Lyrindryel</strong>. Moro em um reduto élfico não muito longe daqui. Um dia estava colhendo ervas, então fui atacada por um bando desses monstros. Não sofri nenhum tipo de violência deles. Apenas cobriram minha cabeça com um saco para que não pudessever para onde ia, e fui jogada em uma jaula com outras mulheres. Tentei contar os dias de viagem, mas não consegui distinguir o que era dia ou noite, tanto era meu pavor. Finalmente chegamos em algum lugar, mas ainda estava vendada. fomos ameaçadas e empurradas com alguma coisa pontuda, senti a diferença do ar, o terreno onde andavamos mudar para um gelado de pedra e uma inclinação para baixo, e então deduzi que estavamos sendo levadas para o interior da terra. Fomos acorrentadas de pé, e então os sacos de nossa cabeça foram tirados. A luz da tocha ardeu nos olhos, mas em pouco tempo já conseguia ver as outras. Fêmeas de todas as raças civilizadas estavam ali. Um frio correu minha espinha e chorei. Mais tempo se passou sem que eu soubesse o quanto. Então, fomos levadas, todas para uam grande sala circular, com camas de pedra. Fomos presas a essas pedras e homens com capuzes entraram, ergueram punhais em  nossa direção, até que alguma coisa aconteceu. Não sei ao certo, mas eu me vi livre, e então corri. Consegui fugir de lá, e corri pela floresta, na chuva mas não havia ninguém. Por sorte vi um cavalo ao longe e decidi seguí-lo, então cheguei aqui.</p>
+			<p>Lyrindryel pousou os olhou sobre você, enquanto Gork se endireitou na cadeira, incomodado com a história. Sua testa gelou por um instante, e com a cabeça girando em confusão você acaba se sentando perto deles. Foi Gork quem quebrou o silêncio: — Vejo que você tem uma grande aventura a frente estranho. Não sei como, mas parece que você, de alguma forma terá que procurar esse maldito culto e chutar a bunda deles,  para conseguir salvar essas garotas e acabar com essa porcaria.</p>
+			<p>Ainda um pouco confuso você concorda. Você pede uma bebida para Gork, que a serve em seguida. Então, com um pouco mais de coragem derivada do álcool, você decide que irá partir ao amanhecer. Pede que Gork acolha Lyrindriel, e lhe opferece as últimas moedas que tem. ele gentilmente recusa: — Você vai precisar mais do que eu. Não sabemos que perigo vai enfrentar. Leve tudo o que tiver. Se eu pudesse iria com você, relembrar os velhos tempo, e quem sabe encontrar aqueles ratos pelo caminho, mas só vou acabar te atrasando. O que posso fazer e lhe dar algumas rações para uns dias, e lhe desejar sorte.</p>
+			<p>Você ascente com um sinal de cabeça. Retira um pedaço de pergaminho de uma bolsa lateral, um pedaço de carvão e entrega para eles. VOcê pergunta se a elfa se lembra qual é a direção que ela pegou até te encontrar, mas por conta da chuva ela responde que não. Ela sabe apenas que demorou três dias até que visse você. Você pede então que Gork desenhe um mapa com o que ele achar de mais importante na região, e que se Lyrindryel lembrar de algo mais, também anote. Você diz que irá preparar suas coisas, seu cavalo e então partir o quanto antes. Vocês três trocam olhares, sem saber se aqueles poderiam ser o ultimo que você teria com eles. Para continuar, clique <button onclick="show (10)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text9" class="hidden">
+			<p>Você morreu, hahahahah</p>
+		</div>
+		<div id="text10" class="hidden">
+			<p>O dia mal havia nascido quando você deixou a taverna do Osso Estilhaçado. A chuva havia parado, o que era de grande alívio. Titus fez um mapa da melhor maneira que pode, mas ele se desculpou por lembrar tão pouco dos detalhes da região. Quando você saiu Lyrindryel ainda estava dormindo, mas ela pediu que você levasse seu colar de madeira entalhado em forma de folha com você, para dar sorte. Caso deseje colocar o colar, clique <button onclick="show(11)"><strong>aqui</strong></button>. Caso deseje deixar ele em sua mochila, clique <button onclick="show (12)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text11" class="hidden">
+			<p>Você coloca o colar, e mesmo sem saber se ele tem alguma propriedade mágica, se sente bem. Por um momento, a imagem de que aquele amuleto salvou a vida de Lyrindriel vem a sua mente e você ri. Dando uma última olhada na taverna, você faz com que seu cavalo aperte o trote seguindo em direção a estrada. Para continuar, clique <button onclick="show (13)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text12" class="hidden">
+			<p>Você sabe que aquele amuleto não passa de uma superstição boba e sem sentido. O melhor que você tem para essa viagem é confiar em suas habilidades, por isso decide guardar o amuleto na mochila.  Dando uma última olhada na taverna, você faz com que seu cavalo aperte o trote seguindo em direção a estrada. para continuar, clique <button onclick="show (13)"><strong>aqui</strong></button>.</p>
+		</div>
+
+		<div id="text13" class="hidden">
+			<p>Chegando em uma encruzilhada, você decide dar uma olhada no mapa que Titus fez para você. Seguindo a norte, você chegará até um entreposto comercial. Na direção oeste, um grupo de casas esta marcado como  fazendas de Mortior. Seguindo para leste, você estará ao pé dos cinco picos, e depois dele o deserto da Terra Seca. Para qual lado você decide ir? Caso queira seguir em direção ao norte, clique <button onclick="show (14)"><strong>aqui</strong></button>. Caso prefira dar uma olhada nas fazendas do leste, você clica <button onclick="show (15)"><strong>aqui</strong></button>. Ou, caso deseje seguir para o leste, em direção aos cinco picos, clique <button onclick="show (16)"><strong>aqui</strong></button>.</p>
+		</div>
+		<div id="text15" class="hidden">
+			<p>Em meio dia de viagem, quando está no topo de uma colina,  você já consegue enchergar as fazendas. As casas das fazendas tem fumaça saindo de suas chamines, o que é um bom sinal. Você decide se apressar para chegar até as fazendas antes do cair da noite. Para continuar, clique <button onclick="show (17)"><strong>aqui</strong></button>.</p>
+		</div>
+		
+		<div id="text17" class="hidden">
+			<p>Quando está próximo a entrada do complexo de fazendas, você percebe uma sombra de algum animal grande passar por sobre você voando. Algumas pessoas gritam e correm para longe. Faça um teste de HABILIDADE. Caso tenha sucesso você clica <button onclick="show (18)"><strong>aqui</strong></button>. Caso falhe, clique <button onclick="show (19)"><strong>aqui</strong></button>.</p>
+		</div>
+		
+		<div id="text18" class="hidden">
+			<p>Você consegue desviar no último segundo do ataque de um GRIFO. A criatura circula o pasto, atacando uma vaca. Alguns fazendeiros a atacam, então ela pousa, dando a chance para que você  avançe contra ela. Só te resta lutar contra a criatura, então clique <button onclick="show (20)"><strong>aqui</strong></a>.</p>
+		</div>
+		
+		<div id="text19" class="hidden">
+			<p>Você tenta desviar, mas seu reflexo é muito lento. A garra de um GRIFO rasga seu ombro, lhe causando 2 pontos de dano. Por sorte você consegue se segurar ao seu cavalo. Então, você investe contra a criatura. Só te resta lutar contra o grifo, então clique <button onclick="show (20)"><strong>aqui</strong></a>.</p>
+		</div>
+		
+		<div id="text20" class="hidden">
+			<p>A criatura mal terminou de arrancar um pedaço do animal que havia atacado, e já vira para você. Com um impulso, você avança contra ela, clicando <button onclick="show (21)"><strong>aqui</strong></a>.</p>
+		</div>
+		
+		<div id="text21" class="hidden">
+			GRIFO: FORÇA 8 ; HABILIDADE 7 ; PV 10</p> 
+			<p>Quando vencer, vá para <button onclick="show (22)"><strong>21</strong></button>.</p>
+		</div>
+<!-- 
+		<div id="text" class="hidden">
+			<p>Pouco depois que o grifo cai no chão sem vida, os fazendeiros começam a sair de suas casas. Crianças correm em sua direção, mais atraidas pela criatura do que pela sua valentia. Um senhor de mais idade vem em sua direção e diz: — Olá forasteiro, sou Bertz, tomo conta das coisas por aqui, não por escolha, mas por nescessidade. Respondo para o oficial do porto sobre os produtos que mandamos para fora, e para o conde sobre oque temos para oferecer para a cidade. Venha até minha casa. Você me salvou de ter que dar boas explicações para os dois lados. — E o velho lhe indica um caminho. Caso queira ir até a cabana de Bert vá para <button onclick="show ()"><strong></strong></button>. Caso queira conversar com alguma outra pessoa da vila de fazendas vá para <button onclick="show ()"><strong></strong></button>.</p>
+		</div>
+		
+		<div id="text" class="hidden">
+			<p>Bert mora sozinho e sua cabana é bem simples. Ele lhe serve uma agua quente com algumas folhas dentro: — Se houver alguma maneira de agradecer sua ajuda diga. Tentarei fazer o máximo para te ajudar. — As feições duras de Bert escondem um homem bom. Caso você se sinta confortável para contar sobre sua missão vá para <button onclick="show ()"><strong>aqui</strong></button>. Caso contrário vá para <button onclick="show ()"><strong></strong></button>.</p>
+		</div>
+		
+		<div id="text" class="hidden">
+			<p>Você anda pelas pessoas, que lhe agradecem e rezam pela sua vida. Algumas crianças o chamam de heroi, e começam a brincar de herói e grifo, todos querendo ser você. Os adultos se mostram pessoas que poucos sabem sobre qualquer coisa fora daquelas cercas. Você tenta puxar assunto com eles, mas logo eles se dizem ocupados para concluir suas tarefas. Sem opções, você decide falar com Bert. Vá para <button onclick ="show ()"><strong></strong></button>. Você também pode Deixar a fazenda indo para <button  onclick="show ()"><strong></strong></button>.</p>
+		</div>
+					
+		<div id="text" class="hidden">
+			<p>— Mulheres sequestradas por um culto? Agora que você está dizendo isso, tivemos uma garota que sumiu daqui, a mais ou menos umas quatro semanas, mas pensamos que ela havia sido devorda por algum monstro. Infelizmente não sei muito sobre, mas sei que goblins tem um acampamento ao sul.  — Você agradece e deseja sorte para Bert e os fazendeiros. Vá para <button onclick="show ()"><strong></strong></button>.</p>
+		</div>
+		
+		<div id="text" class="hidden">
+			<p>— Se temos problemas? Claro que temos. Se acontecem coisas estranhas? Pelos Deuses, quer algo mais estranho do que aconteceu a pouco? Caro aventureiro, se o mundo que vivemos não é de problemas, é de que? — Bert parece não saber de muitas coisas, mas você pode falar com ele sobre sua missão indo para <button onclick ="show (25)"><strong>aqui</strong></button>. Também pode falar com outras pessoas da fazenda caso não tenha feito isso ainda. Para isso, vá para <button onclick="show (23)"><strong>23</strong></button>. Você também pode partir da região das fazendas. Vá para <button onclick="show (27)"><strong>27</strong></button>.</p>
+		</div>
+		
+		<div id="text" class="hidden">
+			<p><a href="#text27" onclick="show (27)"><strong>27</strong></a>. Você deixa a fazenda em busca de novas informações. Vá para <a href="#text28" onclick="show (28)"><strong>28</strong></a>.</p>
+		</div>
+		
+		<div id="text" class="hidden">
+			<p> <a href="#text28" onclick="show (28)"><strong>28</strong></a>. Você decide que o melhor a se fazer é voltar para a encruzilhada. Siga para <a href="#text29" onclick="show (29)"><strong>29</strong></a>.</p>
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text28" onclick="show (29)"><strong>29</strong></a>. Você pega a estrada em sentido a encruzilhada remoendo o que você irá encontrar no seu caminho. Quando você chega ao lugar em que as estradas se encontram você olha para os caminhos que seguem por ali. Caso não tenha ido até lá ainda você pode ir  na direção oeste,  para as fazendas de Mortior <a href="#text15" onclick="show (15)"><strong>15</strong></a>. Você pode seguir para norte, para os entrepostos comerciais, vá para <a href="#text14" onclick="show (14)"><strong>14</strong></a> (caso ainda não tenha ido até lá). Ou caso ainda não tenha seguido para o leste, em direção aos cinco picos, vá para <a href="#text16" onclick="show (16)"><strong>16</strong></a>. Se você já visitou todos os lugares, ou deseja partir direto para o sul com a informação que você já tem, vá para <a href="#text52" onclick="show (52)"><strong>52</strong></a>.</p>
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text30" onclick="show (30)"><strong>30</strong></a>. O caminho para o entreposto parece ser o mais longo, então você decide forçar um pouco mais a marcha do seu cavalo. Você começa a repassar mentalmente o que aconteceu nos ultimos dias, e planejar algumas ações e o que visitar na capital. Todo o seu foco faz com que você viaje atento. Vá para <a href="#text31" onclick="show (31)"><strong>31</strong></a>.</p>
+		</div>
+
+
+		<div id="text" class="hidden">
+			<p><a href="#text32" onclick="show (32)"><strong>32</strong></a>. Cavalgando mais alguns dias você nota que agora a estrada é feita de pedras, um sinal de que o entreposto está próximo. Pensar que está chegando faz você repassar seus planos o que tira sua atenção. Faça um teste de HABILIDADE. Caso tenha sucesso vá para <a href="#text33" onclick="show (33)"><strong>33</strong></a>. Caso falhe vá para <a href="#text34" onclick="show (34)"><strong>34</strong></a>.</p>			
+		</div>
+
+
+		<div id="text" class="hidden">
+			<p><a href="#text33" onclick="show (33)"><strong>33</strong></a>.  No último momento você consegue enxergar um fio esticado no caminho, fazendo seu cavalo saltar por ele. Olhando para o lado você vê um bandido saindo de uma moita na sua direção com uma espada em punho. Vá para <a href="#text35" onclick="show (35)"><strong>35</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text34" onclick="show (34)"><strong>34</strong></a>. Você não percebe um fio esticado no seu caminho e seu cavalo tropeça e consegue ficar de pé, mas você não tem a mesma sorte.  Perca 2 pontos de vida pela queda e enfrete o bandido quem vem na sua direção, indo para <a href="#text35" onclick="show (35)"><strong>35</strong></a>.</p>			
+		</div>
+		
+		<div id="text" class="hidden">
+			<p><a href="#text35" onclick="show (35)"><strong>35</strong></a>. LADRÃO: FORÇA 8 ; HABILIDADE 7 ; PV 10</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p>Quando vencer, vá para <a href="#text36" onclick="show (36)"><strong>36</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text36" onclick="show (36)"><strong>36</strong></a>. Olhando em volta, você encontra uma bolsa com "os pertences" do bandido. Dentro dela, algumas rações de viagem e algumas moedas de ouro. Vasculando em volta você deduz que é só isso mesmo que há por aqui, então decide continuar sua viagem. Cavalgando por mais algumas horas, você já consegue enchergar o entreposto. A construção é um conjunto de casas de pedra margenado a estrada. Você deduz que provavelmente é algum tipo de posto comercial ou de cobrança de impostos. Algumas carroças estão em fila para passar por uma guarita, enquanto algumas pessoas que estão seguindo a pé oua cavalo são direcionados para uma fila lateral. Quando você chega perto tem que decidir se vai para a fila de carroças, <a href="#text37" onclick="show (37)"><strong>37</strong></a> ou para a outra fila, <a href="#text38" onclick="show (38)"><strong>38</strong></a>.</p>			
+		</div>		
+
+		<div id="text" class="hidden">
+			<p><a href="#text37" onclick="show (37)"><strong>37</strong></a>. Quando você emparelha seu cavalo atrás de uma carroça um guarda humano e um golias vem em sua direção: — A não ser que você tenha uma carroça enfiada na traseira de seu cavalo, a sua fila é a outra. — O tom do humano é arrogante, e o golias ri. Caso queira atacar os insolentes vá para <a href="#text38" onclick="show (38)"><strong>38</strong></a>. Caso decida que é melhor trocar de fila vá para <a href="#text39" onclick="show (39)"><strong>39</strong></a>.</p>			
+		</div>			
+
+		<div id="text" class="hidden">
+			<p><a href="#text39" onclick="show (39)"><strong>39</strong></a>. Você vai em direção a fila lateral. Ela é bem mais rápida do que a outra e logo você é atendido. Um anão de rosto simpático vem em sua direção. Ele lhe faz algumas perguntas e você as responde sem problemas.Ele se desculpa e explica que esse protocolo é para evitarem que bandidos circulem livres por ai. Vá para <a href="#text40" onclick="show(40)"><strong>40</strong></a>.</p>			
+		</div>			
+
+		<div id="text" class="hidden">
+			<p><a href="#text38" onclick="show (38)"><strong>38</strong></a>. Você faz menção em atacar os guardas do entreposto, mas antes que você tenha tempo de reagiur e tomar qualquer tipo de ação, ambos guardas sacam suas armas e atravessam seu corpo. Outros guardas que circulavam a região cravejam seu corpo com flechas antes que você perca a consciência. Sua aventura termina aqui.</p>			
+		</div>			
+
+		<div id="text" class="hidden">
+			<p><a href="#text40" onclick="show(40)"><strong>40</strong></a>. Você começa a trocar algumas palavras com o anão e ele se mostra bem receptivo em conversar e tirar suas dúvidas sobre a região: — Próximo daquei temos a região das fazendas de Moritor. Eles são responsáveis por boa parte da nossa alimentação. No sentido contrário, em direção aos picos, você pode encontrar algumas vilas remotas. Passando por aqui, você vai para a capital. Você irá contar sobre sua missão? Caso sim, vá para <a href="#text41" onclick="show(41)"><strong>41</strong></a>. Caso queira perguntar de maneira mais sútil, vá para <a href="#text43" onclick="show(43)"><strong>43</strong></a>.</p>			
+		</div>			
+
+		<div id="text" class="hidden">
+			<p><a href="#text41" onclick="show(41)"><strong>41</strong></a>. — Então você está atrás de um culto sinistro que sequestra pessoas para um sacrifício qualquer? — O Tom do anão parece ser o de gozação, e você se sente um pouco irritado, mas o semblante dele logo muda. — Você sabe, muita gente passa por aqui e acabamos ouvindo algumas coisas. Parece que algumas garotas estavam sumindo, e um orc que passou por aqui jura que viu uns goblins levando uma jaula com umas mulheres para o sul. Além disso, confisque esse livro um dia desses. — O anão sai por alguns minutos e volta com um livro de capa escura, que imita pele humana nas mãos. — Pode levar, ninguem quis essa porcaria. — Você agradeçe ao anão e parte. Vá para <a href="#text42" onclick="show(42)"><strong>42</strong></a>.</p>			
+		</div>	
+		
+		<div id="text" class="hidden">
+			<p><a href="#text43" onclick="show(43)"><strong>43</strong></a>.— Se eu vi alguma coisa estranha acontecer por esses dias? Mas claro, aqui é um entreposto comercial, tudo de estranho passa por aqui. Há uns dias atrás confisquei um livro meio estranho. Li algumas páginas mas logo meu interesse por ele se perdeu. Fala de sacrificios e essas coisas. Vou pegar para que você veja ele. — O anão sai por alguns minutos e volta com um livro de capa escura, que imita pele humana nas mãos. — Pode levar, ninguem quis essa porcaria. — Você agradeçe ao anão e parte. Vá para <a href="#text42" onclick="show(42)"><strong>42</strong></a>.</p>			
+		</div>	
+		<div id="text" class="hidden">
+			<p><a href="#text42" onclick="show(42)"><strong>42</strong></a>. Você deixa o entreposto em busca de novas informações. Vá para <a href="#text28" onclick="show (28)"><strong>28</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text16" onclick="show (16)"><strong>16</strong></a>. O caminho para o oeste é o mais selvagem e remoto de todos. Algumas sociedades mais barbarizadas ficam naquela região, então você decide redobrar suia atenção no caminho. Tudo segue bem tranquilo nos primeiros dias, até que você consegue avistar algumas cabanas. Vá para <a href="#text43" onclick="show(43)"><strong>43</strong></a></p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text43" onclick="show(43)"><strong>43</strong></a>. Ao longe, seus olhos treinados já percebem que alguma coisa não está certo. Você segue como cavalo até algumas árvores próximas, Você o amarra em uma árvore e decide seguir a pé. Quando se aproxima, vê que as casas estão em chamas. Faça um teste de HABILIDADE. Caso tenha sucesso vá para <a href="#text44" onclick="show (44)"><strong>44</strong></a>. Caso falhe, vá para <a href="#text45" onclick="show (45)"><strong>45</strong></a>.</p> 			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text44" onclick="show (44)"><strong>44</strong></a>. Você ouve o barulho de um galho seco se quebrando e por instinto se abaixa, no exatoinstante em que o machado de um orc bárbaro atinge a árvore ao seu lado. Você consegue empurrá-lo e sacar sua arma para enfrentá-lo. Vá para <a href="#text46" onclick="show (46)"><strong>46</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text45" onclick="show (45)"><strong>45</strong></a>. Você enxerga alguns goblins por lá e então começa a avançar contra as criaturas mas acaba não percebendo seu lider atrás de você. Um orc bárbaro acerta um golpe desajeitado em você causando 2 pontos de dano. Lute contra ele indo para <a href="#text46" onclick="show (46)"><strong>46</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text46" onclick="show (46)"><strong>46</strong></a>. ORC: FORÇA 8 ; HABILIDADE 7 ; PV 10</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p>Quando vencer, vá para <a href="#text47" onclick="show (47)"><strong>47</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text47" onclick="show (47)"><strong>47</strong></a>. Logo que o orc bárbaro vai ao chão, você escuta um grito vindo das cabanas. Você se apressa para lá, tentando ser o mais furtivo possível. Ao se aproximar, você vê que por mais que a situação pareça ser um pouco caótica, ela está sob o controle dos locais. Quando você sai do meio da folhagem alguns apontam armas contra você, mas logo relaxam quando percebem que você não é um goblin. Automaticamente você levanta as mãos, mostrando que não é uma ameaça.  Você percebe que a tribo é composta de anões, elfos e humanos em geral, mas quem toma a frente para falar com você é um pequenino halfling: — Sou Adendotor, cuido de tudopor aqui. Devo me preocupar comvocê forasteiro, ou teremos mais sangue derramado?  — Se você deseja estender a mão para o halfling vá para <a href="#text48" onclick="show (48)"><strong>48</strong></a>. Caso queira atacá-lo vá para <a href="#text49" onclick="show (49)"><strong>49</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text48" onclick="show (48)"><strong>48</strong></a>. O pequenino estica a mão na sua direção e faz um aceno com a cabeça. — Que ventos trazem um estranho até aqui, em um dia tão esquisito para o nosso povo? — Se você quer dizer que está apenas de passagem, vá para <a href="#text50" onclick="show (50)"><strong>50</strong></a>. Caso queira dizer o real motivo vá para <a href="#text51" onclick="show (51)"><strong>51</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text49" onclick="show (49)"><strong>49</strong></a>. Você ergue sua arma, e consegue matar dois dos locais antes que Adendotor o alcançe. Ele é extremamente ágil, e consegue atravessar seu pescoço com uma adaga antes que você consiga reagir. Por uma atitude completamente impensada, sua vida de aventuras chega ao fim.</p>			
+		</div>	
+		
+		<div id="text" class="hidden">
+			<p><a href="#text50" onclick="show (50)"><strong>50</strong></a>. Você diz para Adendotor que está apenas de passagem pela região, viu a movimentação de criaturas e foi investigar. Ele agradece sua boa intenção em ajudar seu pequeno povoado e te convida para uma festa em comemoração a vitória de vocês. Vocês comem e bebem em volta deuma fogueira, enquanto dois anões tocam tambores. A noite passa e você decide acampar por ali mesmo. Na manhã seguinte você pode partir indo para <a href="#text52" onclick="show (52)"><strong>52</strong></a>, ou então contar sobre sua missão para o Halfling, indo para <a href="#text51" onclick="show (51)"><strong>51</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text52" onclick="show (52)"><strong>52</strong></a>.Você sai do pequeno vilarejo e algo lhe diz que seu caminho não está além dos três picos, então você parte para a encruzilhada mais uma vez. Vá para <a href="#text28" onclick="show (28)"><strong>28</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text52" onclick="show (52)"><strong>52</strong></a>.Você sai do pequeno vilarejo e algo lhe diz que seu caminho não está além dos três picos, então você parte para a encruzilhada mais uma vez. Vá para <a href="#text28" onclick="show (28)"><strong>28</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text51" onclick="show (51)"><strong>51</strong></a>. Adenontor ouve sua história quase sem piscar. — Já ouvi sobre esse tipo de coisa, mas infelizmente não entendo sobre esses tipos de rituais. O que posso dizer é que algumas lendas indicam que há um lugar para sacrifícios bem ao sul, sob algumas ruinas. Quem sabe você consiga algo por lá. — O Halfling agradeçe mais uma vez sua ajuda, e diz que o quanto mais rápido você partir, mais rápido ira concluir sua jornada. Ele também lhe entrega uma adaga de lâmina escura. Você agradeçe ao pequenino e deixa o vilarejo, partindo para a estrada mais uma vez. Vá para <a href="#text28" onclick="show (28)"><strong>28</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text52" onclick="show(52)"><strong>52</strong></a>. Pouco tempo de viagem depois você encherga ao longe a estalagem dos Farelos de Ossos, mas você acha que é melhor passarpor lá somente depois de concluir sua missão, e pensar nela, em enfrentar um culto qualquer que ele seja, faz sua espinha gelar. Você acha que isso é bom, já que por mais que seja um aventureiro experiente, aprendeu com o tempo que o medo é o termômetro que matem os aventureiros vivos. Além disso, você sabe que o caminho para o sul é mais selvagem do que as estradas que você estava andando até agora, por isso, decide redobrar sua atenção. A viagem segue até que ao longe você consegue ver uma floresta, e algo o faz crer que seu destino está lá. Por acreditar que a floresta é um lugar perigoso, você decide acampar fora dela e acordar bemcedo para não precisar passar muitas noites por lá. Logo que você termina demontar acampamento, você ouve o somde cascos de cavalo vindo em sua direção, por isso você fica preparado para qualquer problema que possa aparecer. Pouco depois, três guerreiros montados em cavalos aparecem na sua frente. Um deles, o que parece ser o lider, tem em seu escudo o desenho deum osso quebrado, e você logo imagina que eles são da antiga companhia comandado por Gork. Esse mesmo homem para a sua frente: — Olá aventureiro. Está perdido? Oupensa em entrar na floresta? Nós podemos fazer sua segurança caso precise. — Ele tem uma postura confiante, apesar de sua feição enigmática. O que você deseja fazer? Caso queira contratar o serviço da companhia doosso quebrado, vá para <a href="#text53" onclick="show (53)"><strong>53</strong></a>. Caso queira negar o serviço, vá para <a href="#text54" onclick="show (54)"><strong>54</strong></a>. Agora, caso queira se identificar como um amigo de Gork, e vingar o golias traído, vá para <a href="#text55" onclick="show (55)"><strong>55</strong></a>.</p>		
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text53" onclick="show (53)"><strong>53</strong></a>. — Bom, se você tem dinheiro para pagar alguem, nós podemos tomar ele de você. — Eles avançam contra você e só lhe resta sobreviver ao ataque. (Lute contra 1 de cadas vez, mas todos te atacam ao mesmo tempo).</p>
+		
+			<p>BANDIDO: FORÇA 6 ; HABILIDADE 4 ; PV 5</p>
+			<p>BANDIDO: FORÇA 6 ; HABILIDADE 4 ; PV 5</p>
+			<p>LÍDER: FORÇA 9 ; HABILIDADE 7 ; PV 10</p>
+
+			<p>Quando vencer, vá para <a href="#text56" onclick="show (56)"><strong>56</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text54" onclick="show (54)"><strong>54</strong></a>. — Bom, se você não quer nos pagar, vamos tomar tudooque é seu. — Eles avançam contra você e só lhe resta sobreviver ao ataque. (Lute contra 1 de cadas vez, mas todos te atacam ao mesmo tempo).</p>
+		
+			<p>BANDIDO: FORÇA 6 ; HABILIDADE 4 ; PV 5</p>
+			<p>BANDIDO: FORÇA 6 ; HABILIDADE 4 ; PV 5</p>
+			<p>LÍDER: FORÇA 9 ; HABILIDADE 7 ; PV 10</p>
+
+			<p>Quando vencer, vá para <a href="#text56" onclick="show (56)"><strong>56</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text55" onclick="show (55)"><strong>55</strong></a>.  Quando você fala o nome de Gork a feição dos bandidos mudam. — Então vamos matar você, e ir atrás dele! — Eles avançam contra você e só lhe resta sobreviver ao ataque. (Lute contra 1 de cadas vez, mas todos te atacam ao mesmo tempo).</p>
+		
+			<p>BANDIDO: FORÇA 6 ; HABILIDADE 4 ; PV 5</p>
+			<p>BANDIDO: FORÇA 6 ; HABILIDADE 4 ; PV 5</p>
+			<p>LÍDER: FORÇA 9 ; HABILIDADE 7 ; PV 10</p>
+
+			<p>Quando vencer, vá para <a href="#text56" onclick="show (56)"><strong>56</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text56" onclick="show (56)"><strong>56</strong></a>. O corpo do chefe dos mercenários caisem vida a seus pés. Você se sente que vingou Gork e isso te enche de coragem para concluir sua missão principal. Você vasculha ocorpo do líder em busca de alguma prova e achauma flâmula como desenho de um osso quebrado. Além disso, você encontra algumas rações e algumas moedas de ouro. Você decide que é melhor mudar oseu acampamento para algunes metros dentro da floresta e então o faz. Vá para <a href="#text57" onclick="show (57)"><strong>57</strong></a>.</p>		
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text57" onclick="show (57)"><strong>57</strong></a>. A noite passa sem nenhum problema, e você parte logo pela manhã, antes do nascer do sol.  Você segue por toda a manhã encontrando apenas alguns pequenos animais silvestres, que não lhe causam nenhum problema. Você para no meio do dia para uma refeição rápida, e tenta se orientar pelo sol pedindo para que os Deuses o ajudem a encontrar seu caminho. Poucos segundos depois, você ouve um barulho vindo de trás de você. Você está usando um amuleto emformato de folha? Se sim, vá para <a href="#text58" onclick="show (58)"><strong>58</strong></a>. Se não, vá para <a href="#text59" onclick="show (59)"><strong>59</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text58" onclick="show (58)"><strong>58</strong></a>. Um Ente, uma criatura mística protetora da floresta vem em sua direção e você mal tempo de reagir para se defender. Mas então algo acontece. O colar que está em volta de sue pescoço brilha, e isso faz com que o Ente pare. Ele olha para você e fala em uma lingua antiga, que vocês estranhamente consegue entender: — Vejo que você é um forasteiro mas carrega umamuleto de um dos nossos,mas sinto que lhe foi dado e não roubado. O que está fazendo aqui, viajante? — As palavras do Ente ecoam na sua mente, e você entende que não precisa falar com ele para que possam se comunicar. O que você irá responder? A verdade, vá para <a href="#text60" onclick="shiw (60)"><strong>60</strong></a>. Irá dizer qualquer outra coisa, vá para <a href="#text61" onclick="show (61)"><strong>61</strong></a>.</p>			
+		</div>	
+		
+		<div id="text" class="hidden">
+			<p><a href="#text59" onclick="show (59)"><strong>59</strong></a>. Um Ente, uma criatura mística protetora da floresta vem em sua direção e você mal tempo de reagir para se defender. Você ouve a palavra intruso em sua mente, e antes que possa fazer qualquer coisa, um galho atravessa o seu corpo. O ente o levanta e bate com você duas vezes no chão, antes que você perca a sua consciência.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text61" onclick="show (61)"><strong>61</strong></a><strong>61</strong>. Para uma criatura mística, protetora da floresta é fácil identificar a sua mentira e o seu nervosismo em inventar uma história derrepente. Você ouve a palavra intruso em sua mente, e antes que possa fazer qualquer coisa, um galho atravessa o seu corpo. O ente o levanta e bate com você duas vezes no chão, antes que você perca a sua consciência.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text61" onclick="show (61)"><strong>61</strong></a><strong>61</strong>. Para uma criatura mística, protetora da floresta é fácil identificar a sua mentira e o seu nervosismo em inventar uma história derrepente. Você ouve a palavra intruso em sua mente, e antes que possa fazer qualquer coisa, um galho atravessa o seu corpo. O ente o levanta e bate com você duas vezes no chão, antes que você perca a sua consciência.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text60" onclick="shiw (60)"><strong>60</strong></a><strong>60</strong>. Logo que você diz ao Ente que está em busca de um grupo de cultistas, ele o interrompe. — Posso levar você até eles, mas já lhe aviso, o lugar é protegido por uma magia que nos mantem longe. — Se durante a sua jornada você tomou alguma bebida com ervas, vá para <a href="#text62" onclick="show (62)"><strong>62</strong>. Caso contrário, vá para <a href="#text63" onclick="show (63)"><strong>63</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text62" onclick="show (62)"><strong>62</strong><strong>62</strong>. O Ente o carrega até próximo da ruina dos goblins, entrada para a caverna onde os rituais acontecem. Você consegue ver que uma barreira de cor esverdeada protege o lugar. O Ente  o coloca no chão e olha espantado quando você consegue passar por essa barreira. Mais uma vez você ouve  a voiz do Ente em sua mente — Boa sorte. — Você então segue para as ruinas. Vá para <a href="#text64" onclick="show (64)"><strong>64</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text63" onclick="show (63)"><strong>63</strong></a><strong>63</strong>. O Ente o carrega até próximo da ruina dos goblins, entrada para a caverna onde os rituais acontecem. Você consegue ver que uma barreira de cor esverdeada protege o lugar. O Ente  o coloca no chão e olha horrorizado quando seu corpo começa a desmanchar quando você tenta passar pela barreira. Você se amaldiçoa pelo seuazar antes que perca sua consciência e se transforme em uma poça  gosmenta de aventureiro. Sua aventura termina aqui.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text64" onclick="show (64)"><strong>64</strong></a><strong>64</strong>. Você segue em direção as ruinas, mapeando mentalemtne o lugar. Faça um teste de HABILIDADE. Caso tenha sucesso, vá para <strong>65</strong>. Caso falhe, vá para <a href="#text66" onclick="show (66)"><strong>66</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text65" onclick="show (65)"><strong>65</strong>. Enquanto você anda entre as árvores, você vê um grupo de goblins patrulhando o lugar. E você consegue se esconder a tempo quando eles passam por você. Dando um suspiro de alívio, você segue em direção as ruinas. Vá para <a href="#text67" onclick="show (67)"><strong>67</strong></a>.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text66" onclick="show (66)"><strong>66</strong></a><strong>66</strong>. Enquanto você anda entre as árvores, você vê um grupo de goblins patrulhando o lugar. Você seprepara para o combate, mas no momento emque está se preparando para atacar acaba tropelando em um galho exposto, caindo na frente do grupo de goblins. Você não consegue regir antes que um dos goblins corte seu pescoço exposto. Sua aventura termina aqui.</p>			
+		</div>	
+
+		<div id="text" class="hidden">
+			<p><a href="#text67" onclick="show (67)"><strong>67</strong></a><strong>67</strong>. Olhando para as ruínas elas parecem abandonadas. Você se esconde o melhor que pode e observa o lugar por alguns minutos. Você percebe que algumas patrulhas de goblins passam pelo lugar, mas é bem raro. Logo que você decide ir para a entrada do lugar, você ouve barulhos vindos da mata e volta a se esconder. Você vê que dois homens commantos roxos seguemna frente, seguidos por um goblin com vestes cinzas e roxas. Atrás deles, um grupo de goblins puxam e chingam uma fêmea orc, que está cimum capuz cobrindo sua cabeça. Você acredita que um novo ritual possa estra próximo e que está na hora de atacar. Vocês espera que a movimentação acabe e então vai em direção a entrada das ruinas. Vá para <a href="#text68" onclick="show (68)"><strong>68</strong></a>.</p>			
+		</div>	
+	
+		<div id="text" class="hidden">
+			<p><a href="#text68" onclick="show (68)"><strong>68</strong></a>>. Você espera o momento certo e corre em direção a entrada das ruinas e se esgueira pela passagem o mais silêncioso possível. Você ouve alguns barulhos vindo de algumas câmaras laterais, e logo se da conta de que são animais enjaulados. Você pensa em soltá-los, mas acredita que seja mais prudente fazer isso na volta. Seguindo pelas passagens, você percebe que o caminho começa a descer emuma pequena inclinação, até que o espaço se abre em uma grande câmara. Por ela, alguns ossos espalhados, além de alguns corpos femininos em estado de podridão, o que lhe causam uma sensação de raiva, e você promete que ira matar todos os que fizeram aquilo. vá para <a href="#text69" onclick="show (69)"><strong>69</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text69" onclick="show (69)"><strong>69</strong></a><strong>69</strong>. Você segue seu caminho por instinto, até que começa a ouvir gritos. Você se esgeuria pela passagem, até que chega a uma sala redonda, com uma passagem dooutro lado. Em um dos lados da sala, você encherga algumas jaulas vazias. Do outro lado, você vê o goblin de vestes coloridas, entoando um cântico comas mãos erguidas, enquanto a orc ajoelhada na sua frente, agora sem o capuz, chora compulsivamente. O que você pretende fazer. Atacar o goblin de maneira furtiva, ou em um ataque de fúria? Caso decida por um ataque furtivo, faça um teste de HABILIDADE e se for bem sussedido vá para <a href="#text70" onclick="show (70)"><strong>70</strong></a>. Caso falhe ou pretenda atacar diretamente, vá para <a href="#text71" onclick="show (71)"><strong>71</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text70" onclick="show (70)"><strong>70</strong></a>. Você avança o mais cauteloso possível, e o goblin mal tem tempo de entender o que aconteceu quando você corta seu pescoço com sua arma. A orc olha para você ainda em prantos, e o abraça. Você explica que não tem tempo, e que vai até a sala do ritual para que ninguem mais sofra. Você pede que ela o espere lá e seja o mais cauteloso possível. Ela concorda, conseguindo se acalmar um pouco. Vá para <a href="#text72" onclick="show (72)"><strong>72</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text71" onclick="show (71)"><strong>71</strong></a>. Você ataca o goblin com um grito. Com um susto, ele se vira contra você e um raio esverdeado acerta o seu peito. Você recebe 4 pontos de dano. Caso ainda esteja vivo, você terá que enfrêntá-lo. Vá para <a href="#text73" onclick="show (73)"><strong>73</strong></a>.</p>
+		
+			<p><a href="#text73" onclick="show (73)"><strong>73</strong></a>. GOBLIN XAMÃ: FORÇA 4 ; HABILIDADE 6 ; PV 8</p>
+
+			<p>Quando vencer, vá para <a href="#text72" onclick="show (72)"><strong>72</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text72" onclick="show (72)"><strong>72</strong></a>. O goblin cai sem vida. A orc olha para você ainda em prantos, e o abraça. Você explica que não tem tempo, e que vai até a sala do ritual para que ninguem mais sofra. Você pede que ela o espere lá e seja o mais cauteloso possível. Ela concorda, conseguindo se acalmar um pouco. Vá para <a href="#text74" onclick="show (74)"><strong>74</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text74" onclick="show (74)"><strong>74</strong></a>. Você avança pelo corredor. Seu coração está acelerado e sua adrenalina mantém o seu ritimo de caminhada pelo corredor. Você consegue ver as luzes tremulantes de velas pela passagem no final do corredor. Você diminui o passo, evitando fazer qualquer tipo de barulho possível. Logo que você chega à porta, você vê uma sala oval, com XX camas de pedra por toda sua extensão. Nas camas, XX mulheres, entre anãs, elfas, halflings, humanas e orcs estão deitadas. Proximo a elas, XX figuras encapuzadas erguem punhais. Calhas pelo chão seguem para o centro da sala, chegando em um pedestal que emana uma energia esverdeada. As figuras  entoavam um canto ritualístico, enquanto sacavam punhais de suas roupas. Você precisa tomar uma decisão do que fazer, antes que alguma inocente morra. Você teve um sonho com essa situação? Caso sim, some a quantidade de pessoas do sonho, com as que você está vendo agora, excluindo você, e vá para essa referência (input). Caso não tenha tido nenhum sonho, vá para <a href="#text75" onclick="show (75)"><strong>75</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong></strong>. Você vê claramente o que vai acontecer, como se tivesse vivido aquilo. Você tem alguma adaga de cor escura com você? Caso tenha, vá para <strong>77</strong>. Caso contrário vá para <strong>78</strong>.</p>		
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong>77</strong>. Você se lembra da adaga que Adenontor lhe entregou a puxa de seu cinto. Você a aremessa contra o primeiro cultista que irá agir, e a adaga o acerta no pescoço em cheio. Os outros dois cultistas se viram contra você. Vá para <strong>76</strong>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong>78</strong>. Você corre em direção aos cultistas, mas a primeira vítima já foi feita. De qualquer forma, você atravessa sua arma contra ele, fazendo os outros dois se virarem contra você. Vá para <strong>76</strong>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text75" onclick="show (75)"><strong>75</strong></a>. Você sente um leve fio de desespero quando não sabe como os cultistas vão agir. Você mal tem tempo de raciocinar quando o primeiro punhal desce sobre a vítima. Como um reflexo, você corre em direção a ele e atravessa sua arma contra seu estômago. O segundo cultista ainda tem tempo de sacrificar sua vitima antes deles virarem para você. Vá para <a href="#text76" onclick="show (76)"><strong>76</strong></a>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><a href="#text76" onclick="show (76)"><strong>76</strong></a>. Você se vê frente a frente com os dois cultistas que sobraram. Eles guardam seus punhais de ritual e sacam suas armas para batalharem contra você. O sangue ferve em suas veias, e você sabe que aquilo deve terminar ali. Lute contra eles, cada um por vez. </p>
+		
+			<p>CULTISTA: FORÇA 10 ; HABILIDADE 7 ; PV 8</p>
+			<p>CULTISTA: FORÇA 7 ; HABILIDADE 10 ; PV 8</p>
+
+			<p>Se vencer vá para <strong>79</strong>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong>79</strong>. Os cultistas caem sem vida no chão.  Você consegue libertar as vitimas que restaram, mas antes que vocês consigam sair da sala, o pilar explode em chamas. Uma voz toma a sala. — Você, reles mortal que interrompe o ritual que era feito em meu nome. Por isso, solicito uma oferenda para acalmar minhas vontades. Caso não tenhas nada, ira queimar eternamente nessa câmara. — Você tem algum livro de capa negra? Caso sim, vá para 80. Caso contrário, vá para <strong>81</strong>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong>80</strong>. Você se lembra do livro que pegou no entreposto comercial e o retira de sua bolsa. O rosto representado na capa da um grito de sofrimento e tenta morder seu dedo, mas você consegue se esquivar. — Muito bem mortal. O livro das almas irá bastar. — A voz ecoou pela sala e você soube que deveria colocar o livro sob o pedestal. Uma explosão de luz tomou a sala, e tudo sumiu, menos você e as vitimas sobreviventes. Vá para <strong>82</strong>.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong>81</strong>. Você só consegue pensar em um sacrifício de sangue. Quando você olha para as sobreviventes que você acabou de libertar seus olhos estão vermelhos como o sangue. Em um movimento rápido você corta a gargante delas, em agrado, ao agora, seu novo Deus. Você tira suas roupas e se veste com o robe de um dos cultistas, partindo em direção da saída e de mais vítimas para seu sacrifício.</p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<p><strong>82</strong>. Você corre para a saída com as sobreviventes que você conseguiu resgatar. Quando chega na saída das ruinas, perecebe que a proteção esverdeada do lugar desapareceu. Quando você começa a ir em direção a saída, percebe que algumas patrulhas de goblins estão sendo dizimadas por entes protetores. Você chega até onde deixou seu cavalo e por sorte ele ainda está lá. As sobreviventes revezam a viagem de volta nele e você não se sente nem um pouco cansado em comparação a elas. Alguns dias de viagem depois você se vê próximo a estalagem do Osso Estilhaçado, mas ela está diferente. Algumas flores foram plantadas do lado de fora, e estavam sendo regadas pela elfa Lyrindryel. Assim que ela te vê, corre em sua direção em um abraço caloroso. Você orienta que as sobreviventes sigam para a estalagem, para que pudesem comer uma refeição decente, tomar um banho e dormirem uma noite tranquila. Quando você entra, acompanhado da elfa, pode ver o mesmo sorriso dificil de Titus para você. Ele diz que não quer saber de sua aventura agora. Diz para você ir até um dos quartos de banho e que durante o jantar vocês vão conversar. Você deita em uma das banheiras de água e sente toda a podridão da sua última aventura sendo lavada.  Quando o final da tarde começa você volta até o salão, onde estão todos. Titus pede que você se sente, e lhe serve um copo da mesma bebibda forte da sua primeira passagem por aqui. Você conta para ele por tudo o que passou, deixando para mostrar no final a flâmula dos Ossos Quebrados, fazendo o minotauro sorrir mais uma vez, so que agora,  como não conseguia desde muito tempo atrás. Vá para <strong>83</strong></p>			
+		</div>
+
+		<div id="text" class="hidden">
+			<h2><strong>83</strong>. Parabéns. Você concluiu a aventura. Mesmo sendo curta, você pode joga-lá mais vezes, tentando combinações de raças, classes e vantagens diferentes. Obrigado por jogar.</h2>
+		</div> -->
+		
+	</main>
+
+</body>
