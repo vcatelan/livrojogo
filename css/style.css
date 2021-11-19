@@ -158,9 +158,14 @@ img {
     align-items:center;  
 }
 .dificuldade {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.estrela {
     width: 20px;
     height: 20px;
-    margin-left: 25PX;
+    margin: 10px;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -187,6 +192,8 @@ img {
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
     pointer-events: none;
+    flex-wrap: wrap;
+    flex: 1 1 175px;
 }
 .aviso:target {
     opacity: 1;
@@ -199,9 +206,10 @@ img {
     padding: 5px 20px 13px 20px;
     border-radius: 10px;
     background: #fff;
+    flex: 1 1 175px;
 }
 .close {
-    background: #606061;
+    background: #3d2b1f;
     color: #FFFFFF;
     line-height: 25px;
     position: absolute;
@@ -217,6 +225,8 @@ img {
     -moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
+    flex-wrap: wrap;
+    flex: 1 1 175px;
 }
 .close:hover {
     background: #c2d4e0;
