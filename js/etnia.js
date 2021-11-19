@@ -71,11 +71,55 @@ function escolherRaca (raca){
     // armazenou o personagem no navegador que ele criou na linha 65
     localStorage.setItem('personagem', JSON.stringify(personagem))
     // chamar  a funcao da linha 77
-    personalizado ('',personagem.nome,'classes')
+
+    esconderSection(1)
+    
+    let fechar = document.querySelectorAll('.close')
+    
+
+    let count = 0
+    Array.from(fechar).forEach(function(el) {
+        if(count ===0){
+            el.click()
+            count = 1
+            console.log(count)
+        }
+      });
+   
+   // personalizado ('',personagem.nome,'classes')
 }
 
+//raca = 1
+//profissao = 2
+//vantagem = 3
 
+function esconderSection (section){
 
+    if(section === 1){
+      let sectionParaEsconder = document.querySelector ('.raca')
+      sectionParaEsconder.classList.add ('disabled')
+      mostrarSection (2)
+    }
+    else if(section === 2){
+        let sectionParaEsconder = document.querySelector ('.classes')
+        sectionParaEsconder.classList.add ('disabled')
+        mostrarSection (3)
+    }
+    
+
+}
+
+function mostrarSection (section){
+
+    if(section === 2){
+        let sectionParaMostrar = document.querySelector ('.classes')
+        sectionParaMostrar.classList.remove ('disabled')  
+    }
+    else{
+        let sectionParaMostrar = document.querySelector ('.vantagem')
+        sectionParaMostrar.classList.remove ('disabled') 
+    }
+}
 
 
 

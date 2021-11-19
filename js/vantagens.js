@@ -68,7 +68,7 @@ function escolherTalento (talento){
 
 function alertaProxpag (personagem, pagina) {
     if (window.confirm ("Você será um " + personagem.nome + ", " + personagem.classe + " com a vantagem " + personagem.vantagem)) {
-        window.location.href = "http://127.0.0.1:5500/Index/"+pagina+".html";
+        window.location.href = "http://127.0.0.1:5500/"+pagina+".html";
     }
     else {
        localStorage.removeItem('personagem') 

@@ -80,6 +80,7 @@ img {
 }
 .ficha h2, h3 {
     justify-content: center;
+    width: 100%;
 }
 .card-base {
     background-color: #fdecb8;
@@ -146,6 +147,9 @@ img {
     padding: 15px 10px;
     margin: 0 auto;
 }
+.disabled {
+    display: none;
+}
 .icone {
     height: 200px;
     width: 200px;
@@ -200,9 +204,10 @@ img {
     pointer-events: auto;
 }
 .aviso > div {
-    width: 400px;
+    /* width: 400px; */
+    height: 400px;
     position: relative;
-    margin: 10% auto;
+    margin: 10% 15%;
     padding: 5px 20px 13px 20px;
     border-radius: 10px;
     background: #fff;

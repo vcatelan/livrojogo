@@ -93,10 +93,23 @@ function escolherClasse (classe){
         }
 
 
+        
+
     // console.log(personagemObj)
     let personagem = {...profissao, ...personagemObj}
     localStorage.setItem('personagem', JSON.stringify(personagem))
-    personalizado (profissao.classe, personagemObj.nome, 'vantagens')
+        esconderSection (2)
+        let fechar = document.querySelectorAll('.close')
+    
+
+        let count = 0
+        Array.from(fechar).forEach(function(el) {
+            if(count ===0){
+                el.click()
+                count = 1
+                console.log(count)
+            }
+          });
 }
 
 function personalizado (classe , raca, pagina) {
@@ -107,3 +120,4 @@ function personalizado (classe , raca, pagina) {
        localStorage.removeItem('personagem') 
     }
 }
+
