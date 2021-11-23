@@ -43,6 +43,26 @@ img {
 	margin: 0 auto;
 	padding: 60px 10px;   
 }
+
+.ficha-aventura  > label >.cabecalho > p, h2{
+    color: #f9f2cf;
+    margin: 0 10px;
+}
+.cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.nome-personagem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+ .nome-personagem > input{
+   width: 60%;
+} 
+
 .raca, .classes .vantagem {
     margin-bottom: 2px solid black;
 }
@@ -175,6 +195,14 @@ img {
     justify-content: space-between;
     display: flex;
     align-items:center;  
+}
+.ficha h2, span{
+    color: #fdecb8;
+}
+.aventura{
+    max-width: 960px;
+	margin: 0 auto;
+	padding: 60px 10px; 
 }
 .rodape {
     position: fixed;

@@ -8,34 +8,19 @@
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <title>A TORRE DE LUGAR NENHUM</title>
+    <title>O CULTO DAS TREVAS</title>
 </head>
 <body>
     <header class="menu-bg">
         <div class="menu">
             <form name="meuForm" method="post" id="formulario">
-                <div class="box">
-                    <h1>Ficha de Personagem :</h1>
-            
-                    <label>
-                        <span>Nome Completo</span>
-                        <input type="text" class="input_text" name="nome" id="name"/>
-                    </label>
-            
-                    <label>
-                        <span>Email</span>
-                        <input type="text" class="input_text" name="email" id="email"/>
-                     </label>
-            
-                    <label>
-                        <span>Assunto</span>
-                        <input type="text" class="input_text" name="assunto" id="subject"/>
-                    </label>
-            
-                    <label>
-                        <span>Mensagem</span>
-                        <textarea class="message" name="feedback" id="feedback"></textarea>
-                    </label>
+				<div class="nome-personagem">
+					<h2>Nome do Personagem :</h2>
+					<input type="text" class="input_text" name="nome" id="name"/>
+				</div>
+                <div class="ficha-aventura" >
+					<label  id="ficha-aventura">
+					</label>       
                 </div>
             </form>
         </div>
@@ -51,21 +36,23 @@
 		let personagemString = localStorage.getItem('personagem')
 		let personagemObj = JSON.parse(personagemString)
 		setTimeout(() => {	
-			document.querySelector('#ficha').innerHTML = `
-				<p>Raça: ${personagemObj.nome}</p>
-				<p>Classe: ${personagemObj.classe}</p>
-				<p>Dom: ${personagemObj.dom}</p>
-				<p>Combate: ${personagemObj.combate}</p>
-				<p>Habilidade: ${personagemObj.habilidade}</p>
-				<p>PV: ${personagemObj.pv}</p>
-				<p>PM: ${personagemObj.pm}</p>
-				<p>Vantagem: ${personagemObj.vantagem}</p>	
+			document.querySelector('#ficha-aventura').innerHTML = `
+				<div class="cabecalho">
+					<p>Raça: ${personagemObj.nome}</p>
+					<p>Classe: ${personagemObj.classe}</p>
+					<p>Dom: ${personagemObj.dom}</p>
+					<p>Vantagem: ${personagemObj.vantagem}</p>
+				</div>	
+				<div class="cabecalho">
+					<p>Combate: ${personagemObj.combate}</p>
+					<p>Habilidade: ${personagemObj.habilidade}</p>
+					<p>PV: ${personagemObj.pv}</p>
+					<p>PM: ${personagemObj.pm}</p>
+				</div>
 			`
 		}, 1000);
 	</script>
-	<main>
-		<div id="ficha">
-		</div>
+	<main class="aventura">
 		<div id="text0" class="shown">
 			<h1>INTRODUÇÃO</h1>
 			<p>A chuva forte vem castigando sua viagem por toda a semana. Você se sente ensopado até os ossos, mas a sua maior preocupação é a de não ter visto nenhuma alma viva perambulando pela estrada desde que essa chuva começou.</p>
