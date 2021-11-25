@@ -14,9 +14,22 @@
     <header class="menu-bg">
         <div class="menu">
             <form name="meuForm" method="post" id="formulario">
+			
 				<div class="nome-personagem">
-					<h2>Nome do Personagem :</h2>
-					<input type="text" class="input_text" name="nome" id="name"/>
+					<img class="tumbnail-personagem" src="./img/anão.jpg">
+					
+					<div class="char-name">
+						<div class="name">
+							<h2>Nome:</h2>
+							<input type="text" class="input_text" name="nome" id="name"/>
+						</div>
+
+						<div class="name">
+							<h2>Notas:</h2>
+							<input type="text" class="input_text" name="nome" id="name"/>
+						</div>
+					
+					</div>
 				</div>
                 <div class="ficha-aventura" >
 					<label  id="ficha-aventura">
@@ -26,32 +39,7 @@
         </div>
     </header>
 
-	<script type="text/javascript">
-		function show(n) {
-			for (var i=0; i<=83; i++) {
-				console.log(i)
-				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
-			}
-		}
-		let personagemString = localStorage.getItem('personagem')
-		let personagemObj = JSON.parse(personagemString)
-		setTimeout(() => {	
-			document.querySelector('#ficha-aventura').innerHTML = `
-				<div class="cabecalho">
-					<p>Raça: ${personagemObj.nome}</p>
-					<p>Classe: ${personagemObj.classe}</p>
-					<p>Dom: ${personagemObj.dom}</p>
-					<p>Vantagem: ${personagemObj.vantagem}</p>
-				</div>	
-				<div class="cabecalho">
-					<p>Combate: ${personagemObj.combate}</p>
-					<p>Habilidade: ${personagemObj.habilidade}</p>
-					<p>PV: ${personagemObj.pv}</p>
-					<p>PM: ${personagemObj.pm}</p>
-				</div>
-			`
-		}, 1000);
-	</script>
+	
 	<main class="aventura">
 		<div id="text0" class="shown">
 			<h1>INTRODUÇÃO</h1>
@@ -112,51 +100,51 @@
 		</div>
 
 		<div id="text13" class="hidden">
-			<p>Chegando em uma encruzilhada, você decide dar uma olhada no mapa que Titus fez para você. Seguindo a norte, você chegará até um entreposto comercial. Na direção oeste, um grupo de casas esta marcado como  fazendas de Mortior. Seguindo para leste, você estará ao pé dos cinco picos, e depois dele o deserto da Terra Seca. Para qual lado você decide ir? Caso queira seguir em direção ao norte, clique <button onclick="show (14)"><strong>aqui</strong></button>. Caso prefira dar uma olhada nas fazendas do leste, você clica <button onclick="show (15)"><strong>aqui</strong></button>. Ou, caso deseje seguir para o leste, em direção aos cinco picos, clique <button onclick="show (16)"><strong>aqui</strong></button>.</p>
+			<p>Chegando em uma encruzilhada, você decide dar uma olhada no mapa que Titus fez para você. Seguindo a norte, você chegará até um entreposto comercial. Na direção oeste, um grupo de casas esta marcado como  fazendas de Mortior. Seguindo para leste, você estará ao pé dos cinco picos, e depois dele o deserto da Terra Seca. Para qual lado você decide ir? Caso prefira dar uma olhada nas fazendas do leste, você clica <button onclick="show (14)"><strong>aqui</strong></button>. Caso queira seguir em direção ao norte, clique <button onclick="show ()"><strong>aqui</strong></button>. Ou, caso deseje seguir para o leste, em direção aos cinco picos, clique <button onclick="show ()"><strong>aqui</strong></button>.</p>
 		</div>
+		<div id="text14" class="hidden">
+			<p>Em meio dia de viagem, quando está no topo de uma colina,  você já consegue enchergar as fazendas. As casas das fazendas tem fumaça saindo de suas chamines, o que é um bom sinal. Você decide se apressar para chegar até as fazendas antes do cair da noite. Para continuar, clique <button onclick="show (15)"><strong>aqui</strong></button>.</p>
+		</div>
+		
 		<div id="text15" class="hidden">
-			<p>Em meio dia de viagem, quando está no topo de uma colina,  você já consegue enchergar as fazendas. As casas das fazendas tem fumaça saindo de suas chamines, o que é um bom sinal. Você decide se apressar para chegar até as fazendas antes do cair da noite. Para continuar, clique <button onclick="show (17)"><strong>aqui</strong></button>.</p>
+			<p>Quando está próximo a entrada do complexo de fazendas, você percebe uma sombra de algum animal grande passar por sobre você voando. Algumas pessoas gritam e correm para longe. Faça um teste de HABILIDADE. Caso tenha sucesso você clica <button onclick="show (16)"><strong>aqui</strong></button>. Caso falhe, clique <button onclick="show (17)"><strong>aqui</strong></button>.</p>
+		</div>
+		
+		<div id="text16" class="hidden">
+			<p>Você consegue desviar no último segundo do ataque de um GRIFO. A criatura circula o pasto, atacando uma vaca. Alguns fazendeiros a atacam, então ela pousa, dando a chance para que você  avançe contra ela. Só te resta lutar contra a criatura, então clique <button onclick="show (18)"><strong>aqui</strong></a>.</p>
 		</div>
 		
 		<div id="text17" class="hidden">
-			<p>Quando está próximo a entrada do complexo de fazendas, você percebe uma sombra de algum animal grande passar por sobre você voando. Algumas pessoas gritam e correm para longe. Faça um teste de HABILIDADE. Caso tenha sucesso você clica <button onclick="show (18)"><strong>aqui</strong></button>. Caso falhe, clique <button onclick="show (19)"><strong>aqui</strong></button>.</p>
+			<p>Você tenta desviar, mas seu reflexo é muito lento. A garra de um GRIFO rasga seu ombro, lhe causando 2 pontos de dano. Por sorte você consegue se segurar ao seu cavalo. Então, você investe contra a criatura. Só te resta lutar contra o grifo, então clique <button onclick="show (18)"><strong>aqui</strong></a>.</p>
 		</div>
 		
 		<div id="text18" class="hidden">
-			<p>Você consegue desviar no último segundo do ataque de um GRIFO. A criatura circula o pasto, atacando uma vaca. Alguns fazendeiros a atacam, então ela pousa, dando a chance para que você  avançe contra ela. Só te resta lutar contra a criatura, então clique <button onclick="show (20)"><strong>aqui</strong></a>.</p>
-		</div>
-		
-		<div id="text19" class="hidden">
-			<p>Você tenta desviar, mas seu reflexo é muito lento. A garra de um GRIFO rasga seu ombro, lhe causando 2 pontos de dano. Por sorte você consegue se segurar ao seu cavalo. Então, você investe contra a criatura. Só te resta lutar contra o grifo, então clique <button onclick="show (20)"><strong>aqui</strong></a>.</p>
+			<p>A criatura mal terminou de arrancar um pedaço do animal que havia atacado, e já vira para você. Com um impulso, você avança contra ela, clicando <button onclick="show (20)"><strong>aqui</strong></a>.</p>
 		</div>
 		
 		<div id="text20" class="hidden">
-			<p>A criatura mal terminou de arrancar um pedaço do animal que havia atacado, e já vira para você. Com um impulso, você avança contra ela, clicando <button onclick="show (21)"><strong>aqui</strong></a>.</p>
-		</div>
-		
-		<div id="text21" class="hidden">
 			GRIFO: FORÇA 8 ; HABILIDADE 7 ; PV 10</p> 
-			<p>Quando vencer, vá para <button onclick="show (22)"><strong>21</strong></button>.</p>
+			<p>Quando vencer, vá para <button onclick="show (21)"><strong>21</strong></button>.</p>
+		</div> 
+
+		<div id="text21" class="hidden">
+			<p>Pouco depois que o grifo cai no chão sem vida, os fazendeiros começam a sair de suas casas. Crianças correm em sua direção, mais atraidas pela criatura do que pela sua valentia. Um senhor de mais idade vem em sua direção e diz: — Olá forasteiro, sou Bertz, tomo conta das coisas por aqui, não por escolha, mas por nescessidade. Respondo para o oficial do porto sobre os produtos que mandamos para fora, e para o conde sobre oque temos para oferecer para a cidade. Venha até minha casa. Você me salvou de ter que dar boas explicações para os dois lados. — E o velho lhe indica um caminho. Caso queira ir até a cabana de Bert vá para <button onclick="show (22)"><strong></strong></button>. Caso queira conversar com alguma outra pessoa da vila de fazendas vá para <button onclick="show ()"><strong></strong></button>.</p>
 		</div>
-<!-- 
-		<div id="text" class="hidden">
-			<p>Pouco depois que o grifo cai no chão sem vida, os fazendeiros começam a sair de suas casas. Crianças correm em sua direção, mais atraidas pela criatura do que pela sua valentia. Um senhor de mais idade vem em sua direção e diz: — Olá forasteiro, sou Bertz, tomo conta das coisas por aqui, não por escolha, mas por nescessidade. Respondo para o oficial do porto sobre os produtos que mandamos para fora, e para o conde sobre oque temos para oferecer para a cidade. Venha até minha casa. Você me salvou de ter que dar boas explicações para os dois lados. — E o velho lhe indica um caminho. Caso queira ir até a cabana de Bert vá para <button onclick="show ()"><strong></strong></button>. Caso queira conversar com alguma outra pessoa da vila de fazendas vá para <button onclick="show ()"><strong></strong></button>.</p>
+		
+		<div id="text22" class="hidden">
+			<p>Bert mora sozinho e sua cabana é bem simples. Ele lhe serve uma agua quente com algumas folhas dentro: — Se houver alguma maneira de agradecer sua ajuda diga. Tentarei fazer o máximo para te ajudar. — As feições duras de Bert escondem um homem bom. Caso você se sinta confortável para contar sobre sua missão vá para <button onclick="show (23)"><strong>aqui</strong></button>. Caso contrário vá para <button onclick="show ()"><strong></strong></button>.</p>
 		</div>
 		
 		<div id="text" class="hidden">
-			<p>Bert mora sozinho e sua cabana é bem simples. Ele lhe serve uma agua quente com algumas folhas dentro: — Se houver alguma maneira de agradecer sua ajuda diga. Tentarei fazer o máximo para te ajudar. — As feições duras de Bert escondem um homem bom. Caso você se sinta confortável para contar sobre sua missão vá para <button onclick="show ()"><strong>aqui</strong></button>. Caso contrário vá para <button onclick="show ()"><strong></strong></button>.</p>
-		</div>
-		
-		<div id="text" class="hidden">
-			<p>Você anda pelas pessoas, que lhe agradecem e rezam pela sua vida. Algumas crianças o chamam de heroi, e começam a brincar de herói e grifo, todos querendo ser você. Os adultos se mostram pessoas que poucos sabem sobre qualquer coisa fora daquelas cercas. Você tenta puxar assunto com eles, mas logo eles se dizem ocupados para concluir suas tarefas. Sem opções, você decide falar com Bert. Vá para <button onclick ="show ()"><strong></strong></button>. Você também pode Deixar a fazenda indo para <button  onclick="show ()"><strong></strong></button>.</p>
+			<p>Você anda pelas pessoas, que lhe agradecem e rezam pela sua vida. Algumas crianças o chamam de heroi, e começam a brincar de herói e grifo, todos querendo ser você. Os adultos se mostram pessoas que poucos sabem sobre qualquer coisa fora daquelas cercas. Você tenta puxar assunto com eles, mas logo eles se dizem ocupados para concluir suas tarefas. Sem opções, você decide falar com Bert. Vá para <button onclick ="show ()"><strong></strong></button>. Você também pode deixar a fazenda indo para <button  onclick="show ()"><strong></strong></button>.</p>
 		</div>
 					
-		<div id="text" class="hidden">
-			<p>— Mulheres sequestradas por um culto? Agora que você está dizendo isso, tivemos uma garota que sumiu daqui, a mais ou menos umas quatro semanas, mas pensamos que ela havia sido devorda por algum monstro. Infelizmente não sei muito sobre, mas sei que goblins tem um acampamento ao sul.  — Você agradece e deseja sorte para Bert e os fazendeiros. Vá para <button onclick="show ()"><strong></strong></button>.</p>
+		<div id="text23" class="hidden">
+			<p>— Mulheres sequestradas por um culto? Agora que você está dizendo isso, tivemos uma garota que sumiu daqui, a mais ou menos umas quatro semanas, mas pensamos que ela havia sido devorda por algum monstro. Infelizmente não sei muito sobre, mas sei que goblins tem um acampamento ao sul.  — Você agradece e deseja sorte para Bert e os fazendeiros. Vá para <button onclick="show (24)"><strong></strong></button>.</p>
 		</div>
 		
-		<div id="text" class="hidden">
-			<p>— Se temos problemas? Claro que temos. Se acontecem coisas estranhas? Pelos Deuses, quer algo mais estranho do que aconteceu a pouco? Caro aventureiro, se o mundo que vivemos não é de problemas, é de que? — Bert parece não saber de muitas coisas, mas você pode falar com ele sobre sua missão indo para <button onclick ="show (25)"><strong>aqui</strong></button>. Também pode falar com outras pessoas da fazenda caso não tenha feito isso ainda. Para isso, vá para <button onclick="show (23)"><strong>23</strong></button>. Você também pode partir da região das fazendas. Vá para <button onclick="show (27)"><strong>27</strong></button>.</p>
+		<div id="text25" class="hidden">
+			<p>— Se temos problemas? Claro que temos. Se acontecem coisas estranhas? Pelos Deuses, quer algo mais estranho do que aconteceu a pouco? Caro aventureiro, se o mundo que vivemos não é de problemas, é de que? — Bert parece não saber de muitas coisas, mas você pode falar com ele sobre sua missão indo para <button onclick ="show (23)"><strong>aqui</strong></button>. Também pode falar com outras pessoas da fazenda caso não tenha feito isso ainda. Para isso, vá para <button onclick="show ()"><strong>23</strong></button>. Você também pode partir da região das fazendas. Vá para <button onclick="show ()"><strong>27</strong></button>.</p>
 		</div>
 		
 		<div id="text" class="hidden">
@@ -437,8 +425,32 @@
 
 		<div id="text" class="hidden">
 			<h2><strong>83</strong>. Parabéns. Você concluiu a aventura. Mesmo sendo curta, você pode joga-lá mais vezes, tentando combinações de raças, classes e vantagens diferentes. Obrigado por jogar.</h2>
-		</div> -->
-		
+		</div>
 	</main>
-
+	<script type="text/javascript">
+		function show(n) {
+			for (var i=0; i<=83; i++) {
+				console.log(i)
+				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
+			}
+		}
+		let personagemString = localStorage.getItem('personagem')
+		let personagemObj = JSON.parse(personagemString)
+		setTimeout(() => {	
+			document.querySelector('#ficha-aventura').innerHTML = `
+				<div class="cabecalho">
+					<p>Raça: ${personagemObj.nome}</p>
+					<p>Classe: ${personagemObj.classe}</p>
+					<p>Dom: ${personagemObj.dom}</p>
+					<p>Vantagem: ${personagemObj.vantagem}</p>
+				</div>	
+				<div class="cabecalho">
+					<p>Combate: ${personagemObj.combate}</p>
+					<p>Habilidade: ${personagemObj.habilidade}</p>
+					<p>PV: ${personagemObj.pv}</p>
+					<p>PM: ${personagemObj.pm}</p>
+				</div>
+			`
+		}, 1000);
+	</script>
 </body>

@@ -199,6 +199,18 @@ img {
 .ficha h2, span{
     color: #fdecb8;
 }
+.char-name {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.name {
+    display: flex;
+    margin-bottom: 13px;
+    width: 100%;
+}
 .aventura{
     max-width: 960px;
 	margin: 0 auto;
@@ -209,6 +221,13 @@ img {
     bottom:0;
     right: 0;
     margin-left: 573px;
+}
+.tumbnail-personagem {
+    height: 100px;
+}
+#name {
+    height: 20px;
+    width: 100%;
 }
 .aviso {
     position: fixed;
@@ -225,7 +244,8 @@ img {
     transition: opacity 400ms ease-in;
     pointer-events: none;
     flex-wrap: wrap;
-    flex: 1 1 175px;
+    display: flex;
+
 }
 .aviso:target {
     opacity: 1;
@@ -233,7 +253,7 @@ img {
 }
 .aviso > div {
     /* width: 400px; */
-    height: 400px;
+    /* height: 400px; */
     position: relative;
     margin: 10% 15%;
     padding: 5px 20px 13px 20px;
@@ -259,8 +279,15 @@ img {
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
     flex-wrap: wrap;
-    flex: 1 1 175px;
 }
 .close:hover {
     background: #c2d4e0;
+}
+
+.shown{
+    display: block;
+}
+
+.hidden{
+    display: none;
 }
