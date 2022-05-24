@@ -86,7 +86,7 @@
 		</div>
 		<div id="text4" class="hidden">
 			<p>
-				Você força um pouco a porta contra o batente para evitar o barulho. Satisfeito, você vai até o salão. Para continuar, clique <button onclick= "show(6)"><strong>aqui</strong></button>.
+				Você força um pouco a porta contra o batente para evitar o barulho. Satisfeito, você vai até o salão investigfar o barulho. Para continuar, clique <button onclick= "show(6)"><strong>aqui</strong></button>.
 			</p>
 		</div>
 		<div id="text5" class="hidden">
@@ -101,29 +101,62 @@
 		</div>
 		<div id="text6" class="hidden">
 			<p>
-				Você chega ao salão principal da taverna e encontra a elfa sentada em uma das mesas. Titus está sentado ao lado dela, encostado na cadeira, com as mãos entrelaçadas e olhar de compaixão. A elfa está envolta em uma pele do que parece ser um urso, com uma caneca de alguma bebida quente nas mãos. Assim que o orc lhê vê, faz sinal para que você se aproxime. Você chega cauteloso e senta em uma cadeira oposta à eles, mirando seu melhor sorriso de empatia para a elfa. Ela retribui com um olhar perdido, e depois de alguns instantes volta a sua atenção para sua bebida quente. Titus faz um sinal com a cabeça para que você o acompanhe para longe dela, e então diz: — Ela ainda está em estado de choque, traumatizada. Balbuciou algumas coisas como  "pedra lunar" "ritual" e "grande poder" enquanto dormia, mas agora não consegue trocar meia duzia de palavras antes de cair perdida nos seus pensamentos. Prepareium chá para ela se acalmar, quem sabe consigo alguma coisa mais pra frente, mas acredito que possa ter acontecido alguma coisa séria por aqui por perto, já que além de você e ela, nenhuma outra criatura se arriscou a andar nessa chuva por esses dias. Tão logo Titus terminou de falar, a porta da taverna se abriu mas uma vez, mas agora para revelar um grupo de <i>goblins</i>. A elfa gritou em desespero, mas seus gritos foram abafados pelo das criaturas, que foram em sua direção. Com seu reflexo apurado, você consegue se colocar a frente deles, enquanto o minotauro mancou o mais rápído que pode na direção da elfa, para protegê-lá. Para lutar contras os goblins, clique <button onclick="show(7)"><strong>aqui</strong></button>.
+				Você chega ao salão principal da taverna e encontra a elfa sentada em uma das mesas. Titus está sentado ao lado dela, encostado na cadeira, com as mãos entrelaçadas e olhar de compaixão. A elfa está envolta em uma pele do que parece ser um urso, com uma caneca de alguma bebida quente nas mãos. Assim que o orc lhê vê, faz sinal para que você se aproxime. Você chega cauteloso e senta em uma cadeira oposta à eles, mirando seu melhor sorriso de empatia para a elfa. Ela retribui com um olhar perdido, e depois de alguns instantes volta a sua atenção para sua bebida quente. Titus faz um sinal com a cabeça para que você o acompanhe para longe dela, e então diz: — Ela ainda está em estado de choque, traumatizada. Balbuciou algumas coisas como  "pedra lunar" "ritual" e "grande poder" enquanto dormia, mas agora não consegue trocar meia duzia de palavras antes de cair perdida nos seus pensamentos. Prepareium chá para ela se acalmar, quem sabe consigo alguma coisa mais pra frente, mas acredito que possa ter acontecido alguma coisa séria por aqui por perto, já que além de você e ela, nenhuma outra criatura se arriscou a andar nessa chuva por esses dias. Tão logo Titus terminou de falar, a porta da taverna se abriu mas uma vez, mas agora para revelar um grupo de <i>goblins</i>. A elfa gritou em desespero, mas seus gritos foram abafados pelo das criaturas, que foram em sua direção. Com seu reflexo apurado, você consegue se colocar a frente de um deles, enquanto o minotauro mancou o mais rápído que pode na direção da elfa, para protegê-lá dos outros. Para lutar contra o goblin, clique <button onclick="show(7)"><strong>aqui</strong></button>.
 			</p>
 		</div>
-		<div id="text7" class="hidden">
+		<div id="text7" class="hidden" >
 			<p>
 				Você só consegue acertar um goblin de cada vez em seu turno, mas todos eles te atacam no turno deles.
 			</p> 
 			<p>
 				GOBLIN: FORÇA 5 ; HABILIDADE 6 ; PV 5
 			</p>
-			<p>
+			
+			<!-- <p>
 				GOBLIN: FORÇA 5 ; HABILIDADE 6 ; PV 5
 			</p>
 			<p>
 				GOBLIN: FORÇA 5 ; HABILIDADE 6 ; PV 5
-			</p>
-			<p>
+			</p> -->
+
+			<button  >
+				<a href="#combate"  >
+				
+					<strong>LUTAR</strong>
+				</a> 
+			</button>
+
+			<div id="combate"  class="aviso">
+				
+                <div>
+                    <div>
+                        
+							<button onclick="iniciaLuta({ nome: 'GOBLIN',
+							combate: 15, habilidade: 6, pv: 5
+						})">Iniciar Combate</button>
+
+							
+							<div id="combate-heroi">
+
+							</div>
+						
+							<div id="combate-inimigo">
+
+
+							</div>
+                           
+                    </div>
+                </div>
+            </div>
+			
+
+			<!-- <p>
 				Caso vença, clique <button onclick="show(8)"><strong>aqui</strong></button>. Caso perca, clique <button onclick="show(9)"><strong>aqui</strong></button>.
-			</p>
+			</p> -->
 		</div>
 		<div id="text8" class="hidden">
 			<p>
-				Com as criaturas derrotadas, sua atenção se volta para a elfa e para Titus. O golias agora já colocava a elfa sentada de volta em uma cadeira. Pelo menos agora após o combate, a elfa parecia de volta a realidade. Você se aproxima deles, e para sua surpresa ela, mesmo com olhar assustado para você, lhe dirige a palavra:
+				Com as criaturas derrotadas, sua atenção se volta para a elfa e para Titus. O corpo dos goblins estão estirados no chão, e o minotauro agora já coloca a elfa sentada de volta em uma cadeira um pouco mais afastada. O semblante dela agora está melhor, como se após o combate, a elfa estivesse de volta a realidade. Você se aproxima deles, e para sua surpresa ela, mesmo com olhar assustado para você, lhe dirige a palavra:
 			</p>
 			<p>
 				— Eu sou <strong>Lyrindryel</strong>. Moro em um reduto élfico não muito longe daqui. Um dia estava colhendo ervas, então fui atacada por um bando desses monstros. Não sofri nenhum tipo de violência deles. Apenas cobriram minha cabeça com um saco para que não pudessever para onde ia, e fui jogada em uma jaula com outras mulheres. Tentei contar os dias de viagem, mas não consegui distinguir o que era dia ou noite, tanto era meu pavor. Finalmente chegamos em algum lugar, mas ainda estava vendada. fomos ameaçadas e empurradas com alguma coisa pontuda, senti a diferença do ar, o terreno onde andavamos mudar para um gelado de pedra e uma inclinação para baixo, e então deduzi que estavamos sendo levadas para o interior da terra. Fomos acorrentadas de pé, e então os sacos de nossa cabeça foram tirados. A luz da tocha ardeu nos olhos, mas em pouco tempo já conseguia ver as outras. Fêmeas de todas as raças civilizadas estavam ali. Um frio correu minha espinha e chorei. Mais tempo se passou sem que eu soubesse o quanto. Então, fomos levadas, todas para uam grande sala circular, com camas de pedra. Fomos presas a essas pedras e homens com capuzes entraram, ergueram punhais em  nossa direção, até que alguma coisa aconteceu. Não sei ao certo, mas eu me vi livre, e então corri. Consegui fugir de lá, e corri pela floresta, na chuva mas não havia ninguém. Por sorte vi um cavalo ao longe e decidi seguí-lo, então cheguei aqui.
@@ -140,7 +173,7 @@
 		</div>
 		<div id="text9" class="hidden">
 			<p>
-				Os goblins são mais fortes do que você pensa e você acbaa derrotado. Antes que vcê perca sua consciência, você pode ver Titus tentando defender a elfa. Sua aventura acaba aqui!
+				Os goblins são mais fortes do que você pensa e você acaba derrotado. Antes que vcê perca sua consciência, você pode ver Titus tentando defender a elfa e o rosto de desespero dela. Sua aventura acaba aqui!
 			</p>
 		</div>
 		<div id="text10" class="hidden">
@@ -547,5 +580,39 @@
 				</div>
 			`
 		}, 1000);
+
+		function atacar(){
+			document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - 15}</p>`
+
+			alert ("acertou")
+		}
+		
+		Armazenar inimigo no local storage para persistir os dados
+
+		function iniciaLuta(inimigo) {
+
+			
+			//  setTimeout(() => {	
+						// alert ("O Pau toro")
+						document.querySelector ('#combate-heroi').innerHTML = `<p>Combate: ${personagemObj.combate}</p>
+						<p>Habilidade: ${personagemObj.habilidade}</p>
+						<p>PV: ${personagemObj.pv}</p>
+						<p>PM: ${personagemObj.pm}</p>
+						<button id="ataqueHeroi" onClick="atacar()">Ataque</button>`
+					// }, 20);
+					let inimigoVez = inimigo
+						document.querySelector ('#combate-inimigo').innerHTML = `
+						<p>Nome: ${inimigoVez.nome}</p>
+						<p>Combate: ${inimigoVez.combate}</p>
+						<p>Habilidade: ${inimigoVez.habilidade}</p>
+						<p>PV: ${inimigoVez.pv}</p>
+						`
+					}
+
+					
+				
+					
+	
+		
 	</script>
 </body>
