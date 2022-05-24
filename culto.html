@@ -132,7 +132,7 @@
                     <div>
                         
 							<button onclick="iniciaLuta({ nome: 'GOBLIN',
-							combate: 15, habilidade: 6, pv: 5
+							combate: 5, habilidade: 6, pv: 5
 						})">Iniciar Combate</button>
 
 							
@@ -582,12 +582,25 @@
 		}, 1000);
 
 		function atacar(){
-			document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - 15}</p>`
-
+			let inimigoString = localStorage.getItem('inimigo')
+			let inimigoObj = JSON.parse(inimigoString)
+			// document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - inimigoObj.combate}</p>	
+			let rolagemDado =	function ()  {return Math.floor(Math.random() * (6 - 1 + 1) + 1)}
+			let diferencaCombate = (parseInt(personagemObj.combate) + rolagemDado()) - (parseInt(inimigoObj.combate) + rolagemDado())
+			if (diferencaCombate > 0){
+				document.querySelector ('#combate-inimigo').innerHTML = `
+				<p>Nome: ${inimigoObj.nome}</p>
+				<p>Combate: ${inimigoObj.combate}</p>
+				<p>Habilidade: ${inimigoObj.habilidade}</p>
+				<p>PV: ${inimigoObj.pv - diferencaCombate}</p>
+				`
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate}
+				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+			}
 			alert ("acertou")
 		}
 		
-		Armazenar inimigo no local storage para persistir os dados
+		// Armazenar inimigo no local storage para persistir os dados
 
 		function iniciaLuta(inimigo) {
 
@@ -600,12 +613,16 @@
 						<p>PM: ${personagemObj.pm}</p>
 						<button id="ataqueHeroi" onClick="atacar()">Ataque</button>`
 					// }, 20);
-					let inimigoVez = inimigo
+
+					localStorage.setItem('inimigo', JSON.stringify(inimigo))
+					let inimigoString = localStorage.getItem('inimigo')
+       				let inimigoObj = JSON.parse(inimigoString)
+					// let inimigoVez = inimigo
 						document.querySelector ('#combate-inimigo').innerHTML = `
-						<p>Nome: ${inimigoVez.nome}</p>
-						<p>Combate: ${inimigoVez.combate}</p>
-						<p>Habilidade: ${inimigoVez.habilidade}</p>
-						<p>PV: ${inimigoVez.pv}</p>
+						<p>Nome: ${inimigoObj.nome}</p>
+						<p>Combate: ${inimigoObj.combate}</p>
+						<p>Habilidade: ${inimigoObj.habilidade}</p>
+						<p>PV: ${inimigoObj.pv}</p>
 						`
 					}
 
