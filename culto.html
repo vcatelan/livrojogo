@@ -563,13 +563,41 @@
 			`
 		}, 1000);
 
+		function atacarMagia () {
+			
+			    let personagemString = localStorage.getItem('personagem')
+				let personagemObj = JSON.parse(personagemString)
+
+			if (personagemObj.classe==="guerreiro" && personagemObj.pm >=2) {
+			
+					document.querySelector ('#combate-heroi').innerHTML = `
+					<p>Combate: ${personagemObj.combate}</p>
+					<p>Habilidade: ${personagemObj.habilidade}</p>
+					<p>PV: ${personagemObj.pv}</p>
+					<p>PM: ${personagemObj.pm - 2 }</p>
+					<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+					<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+					`
+					let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+
+					localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+					// implementar function
+					// ataqueEspecialGuerreiro()
+				
+			}
+			else if (personagemObj.classe==="guerreiro" && personagemObj.pm <2) {
+				alert ('você nao tem poder aqui')
+			}
+		}
+
+
 		function atacar(){
 			let inimigoString = localStorage.getItem('inimigo')
 			let inimigoObj = JSON.parse(inimigoString)
 			// document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - inimigoObj.combate}</p>	
 			let rolagemDado =	function ()  {return Math.floor(Math.random() * (6 - 1 + 1) + 1)}
 			let diferencaCombate = (parseInt(personagemObj.combate) + rolagemDado()) - (parseInt(inimigoObj.combate) + rolagemDado())
-			if (diferencaCombate> 0){
+			if (diferencaCombate > 0){
 				document.querySelector ('#combate-inimigo').innerHTML = `
 				<p>Nome: ${inimigoObj.nome}</p>
 				<p>Combate: ${inimigoObj.combate}</p>
@@ -585,7 +613,7 @@
 				console.log (Math.abs(diferencaCombate), "esse numero tem que ser positivo sempre")
 				console.log (diferencaCombate)
 				if (diferencaCombate > 0) {
-
+					//transformar isso em uma função//
 					let personagemString = localStorage.getItem('personagem')
 					let personagemObj = JSON.parse(personagemString)
 			
@@ -595,7 +623,7 @@
 					<p>PV: ${personagemObj.pv - diferencaCombate}</p>
 					<p>PM: ${personagemObj.pm}</p>
 					<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
-					<button id="ataqueHeroi" onClick="atacarmagia()">Ataque Magico</button>
+					<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
 					`
 					let personagemModificado = {nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv - diferencaCombate}
 					localStorage.setItem('personagem', JSON.stringify(personagemModificado))
@@ -606,6 +634,8 @@
 			}
 		}
 		
+		
+
 		function iniciaLuta(inimigo) {
 			
 			//  setTimeout(() => {	
@@ -615,7 +645,7 @@
 						<p>PV: ${personagemObj.pv}</p>
 						<p>PM: ${personagemObj.pm}</p>
 						<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
-						<button id="ataqueHeroi" onClick="atacarmagia()">Ataque Magico</button>
+						<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
 						`
 					// }, 20);
 
