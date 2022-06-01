@@ -568,7 +568,7 @@
 			    let personagemString = localStorage.getItem('personagem')
 				let personagemObj = JSON.parse(personagemString)
 
-			if (personagemObj.classe==="guerreiro" && personagemObj.pm >=2) {
+			if (personagemObj.classe==="clerigo" && personagemObj.pm >=2) {
 			
 					document.querySelector ('#combate-heroi').innerHTML = `
 					<p>Combate: ${personagemObj.combate}</p>
@@ -585,8 +585,71 @@
 					// ataqueEspecialGuerreiro()
 				
 			}
-			else if (personagemObj.classe==="guerreiro" && personagemObj.pm <2) {
+			else if (personagemObj.classe==="clerigo" && personagemObj.pm <2) {
 				alert ('você nao tem poder aqui')
+			}
+
+			if (personagemObj.classe==="guerreiro" && personagemObj.pm >=2) {
+			
+			document.querySelector ('#combate-heroi').innerHTML = `
+			<p>Combate: ${personagemObj.combate}</p>
+			<p>Habilidade: ${personagemObj.habilidade}</p>
+			<p>PV: ${personagemObj.pv}</p>
+			<p>PM: ${personagemObj.pm - 2 }</p>
+			<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+			<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+			`
+			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+
+			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+			// implementar function
+			// ataqueEspecialGuerreiro()
+		
+			}
+			else if (personagemObj.classe==="guerreiro" && personagemObj.pm <2) {
+			alert ('você nao tem poder aqui')
+			}
+
+			if (personagemObj.classe==="ladino" && personagemObj.pm >=2) {
+			
+			document.querySelector ('#combate-heroi').innerHTML = `
+			<p>Combate: ${personagemObj.combate}</p>
+			<p>Habilidade: ${personagemObj.habilidade}</p>
+			<p>PV: ${personagemObj.pv}</p>
+			<p>PM: ${personagemObj.pm - 2 }</p>
+			<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+			<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+			`
+			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+
+			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+			// implementar function
+			// ataqueEspecialGuerreiro()
+		
+			}
+			else if (personagemObj.classe==="ladino" && personagemObj.pm <2) {
+			alert ('você nao tem poder aqui')
+			}
+
+			if (personagemObj.classe==="mago" && personagemObj.pm >=2) {
+	
+			document.querySelector ('#combate-heroi').innerHTML = `
+			<p>Combate: ${personagemObj.combate}</p>
+			<p>Habilidade: ${personagemObj.habilidade}</p>
+			<p>PV: ${personagemObj.pv}</p>
+			<p>PM: ${personagemObj.pm - 2 }</p>
+			<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+			<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+			`
+			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+
+			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+			// implementar function
+			// ataqueEspecialGuerreiro()
+
+			}
+			else if (personagemObj.classe==="mago" && personagemObj.pm <2) {
+			alert ('você nao tem poder aqui')
 			}
 		}
 
