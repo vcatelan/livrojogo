@@ -582,7 +582,7 @@
 
 					localStorage.setItem('personagem', JSON.stringify(personagemModificado))
 					// implementar function
-					// ataqueEspecialGuerreiro()
+					
 				
 			}
 			else if (personagemObj.classe==="clerigo" && personagemObj.pm <2) {
@@ -603,7 +603,7 @@
 
 			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
 			// implementar function
-			// ataqueEspecialGuerreiro()
+			ataquePoderoso()
 		
 			}
 			else if (personagemObj.classe==="guerreiro" && personagemObj.pm <2) {
@@ -697,6 +697,26 @@
 			}
 		}
 		
+		function ataquePoderoso(){
+			let inimigoString = localStorage.getItem('inimigo')
+			let inimigoObj = JSON.parse(inimigoString)
+			// document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - inimigoObj.combate}</p>	
+			let rolagemDado =	function ()  {return Math.floor(Math.random() * (6 - 1 + 1) + 1)}
+			let diferencaCombate = (parseInt(personagemObj.combate) + rolagemDado()+ rolagemDado()) - (parseInt(inimigoObj.combate) + rolagemDado() + rolagemDado())
+			if (diferencaCombate > 0){
+				document.querySelector ('#combate-inimigo').innerHTML = `
+				<p>Nome: ${inimigoObj.nome}</p>
+				<p>Combate: ${inimigoObj.combate}</p>
+				<p>Habilidade: ${inimigoObj.habilidade}</p>
+				<p>PV: ${inimigoObj.pv - diferencaCombate}</p>
+				`
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate}
+				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+			}
+			else if(diferencaCombate > 0){
+				alert('faio')
+			}
+		}
 		
 
 		function iniciaLuta(inimigo) {
