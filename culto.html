@@ -119,9 +119,9 @@
 			</button>
 			<div id="combate"  class="aviso">
                 <div>
-                    <div>
+                    <div id="combate-arena">
 						<button onclick="iniciaLuta({ nome: 'GOBLIN',
-							combate: 5, habilidade: 6, pv: 5
+							combate: 5, habilidade: 6, pv: 5, proximo:8
 						})">Iniciar Combate</button>
 						<div id="combate-heroi">
 
@@ -582,6 +582,7 @@
 
 					localStorage.setItem('personagem', JSON.stringify(personagemModificado))
 					// implementar function
+					chamaSagrada()
 					
 				
 			}
@@ -624,7 +625,7 @@
 
 			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
 			// implementar function
-			// ataqueEspecialGuerreiro()
+			ataqueFurtivo()
 		
 			}
 			else if (personagemObj.classe==="ladino" && personagemObj.pm <2) {
@@ -645,7 +646,7 @@
 
 			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
 			// implementar function
-			// ataqueEspecialGuerreiro()
+			misselMagico()
 
 			}
 			else if (personagemObj.classe==="mago" && personagemObj.pm <2) {
@@ -717,19 +718,83 @@
 				alert('faio')
 			}
 		}
-		
 
+		function chamaSagrada(){
+			let inimigoString = localStorage.getItem('inimigo')
+			let inimigoObj = JSON.parse(inimigoString)
+				document.querySelector ('#combate-inimigo').innerHTML = `
+				<p>Nome: ${inimigoObj.nome}</p>
+				<p>Combate: ${inimigoObj.combate}</p>
+				<p>Habilidade: ${inimigoObj.habilidade}</p>
+				<p>PV: ${inimigoObj.pv < 3 ? 0 : inimigoObj.pv - 3}</p>
+				`
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - 3, proximo: inimigoObj.proximo}
+				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+
+			if (inimigoModificado.pv <=0){
+				let arena = document.querySelector ('#combate-arena')
+				arena.innerHTML = `
+				<p>Você venceu! </p>
+				<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
+				`
+			}
+
+
+		}
+
+		function ataqueFurtivo(){
+			let inimigoString = localStorage.getItem('inimigo')
+			let inimigoObj = JSON.parse(inimigoString)
+			// document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - inimigoObj.combate}</p>	
+			let rolagemDado =	function ()  {return Math.floor(Math.random() * (6 - 1 + 1) + 1)}
+			let diferencaCombate = (parseInt(personagemObj.combate) + rolagemDado()+ rolagemDado()) - (parseInt(inimigoObj.combate) + rolagemDado() + rolagemDado())
+			if (diferencaCombate > 0){
+				document.querySelector ('#combate-inimigo').innerHTML = `
+				<p>Nome: ${inimigoObj.nome}</p>
+				<p>Combate: ${inimigoObj.combate}</p>
+				<p>Habilidade: ${inimigoObj.habilidade}</p>
+				<p>PV: ${inimigoObj.pv - diferencaCombate}</p>
+				`
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate}
+				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+			}
+			else if(diferencaCombate > 0){
+				alert('faio')
+			}
+		}
+
+		function misselMagico(){
+			let inimigoString = localStorage.getItem('inimigo')
+			let inimigoObj = JSON.parse(inimigoString)
+				document.querySelector ('#combate-inimigo').innerHTML = `
+				<p>Nome: ${inimigoObj.nome}</p>
+				<p>Combate: ${inimigoObj.combate}</p>
+				<p>Habilidade: ${inimigoObj.habilidade}</p>
+				<p>PV: ${inimigoObj.pv < 4 ? 0 : inimigoObj.pv - 4}</p>
+				`
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - 4, proximo: inimigoObj.proximo}
+				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+
+			if (inimigoModificado.pv <=0){
+				let arena = document.querySelector ('#combate-arena')
+				arena.innerHTML = `
+				<p>Você venceu! </p>
+				<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
+				`
+			}
+
+		}
+		
 		function iniciaLuta(inimigo) {
-			
-			//  setTimeout(() => {	
-						// alert ("O Pau toro")
-						document.querySelector ('#combate-heroi').innerHTML = `<p>Combate: ${personagemObj.combate}</p>
-						<p>Habilidade: ${personagemObj.habilidade}</p>
-						<p>PV: ${personagemObj.pv}</p>
-						<p>PM: ${personagemObj.pm}</p>
-						<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
-						<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
-						`
+			let arena = document.querySelector ('#combate-arena')
+				arena.children[0].style.visibility ='hidden'
+					document.querySelector ('#combate-heroi').innerHTML = `<p>Combate: ${personagemObj.combate}</p>
+					<p>Habilidade: ${personagemObj.habilidade}</p>
+					<p>PV: ${personagemObj.pv}</p>
+					<p>PM: ${personagemObj.pm}</p>
+					<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+					<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+					`
 					// }, 20);
 
 					localStorage.setItem('inimigo', JSON.stringify(inimigo))
@@ -742,6 +807,7 @@
 						<p>Habilidade: ${inimigoObj.habilidade}</p>
 						<p>PV: ${inimigoObj.pv}</p>
 						`
+						
 					}
 		
 	</script>
