@@ -121,7 +121,7 @@
                 <div>
                     <div id="combate-arena">
 						<button onclick="iniciaLuta({ nome: 'GOBLIN',
-							combate: 5, habilidade: 6, pv: 5, proximo:8
+							combate: 5, habilidade: 6, pv: 5, proximo:8, proximoPerdeu:9
 						})">Iniciar Combate</button>
 						<div id="combate-heroi">
 
@@ -155,7 +155,7 @@
 		</div>
 		<div id="text9" class="hidden">
 			<p>
-				Os goblins são mais fortes do que você pensa e você acaba derrotado. Antes que vcê perca sua consciência, você pode ver Titus tentando defender a elfa e o rosto de desespero dela. Sua aventura acaba aqui!
+				Seu inimigo é mais forte do que você pensa e você acaba derrotado. Antes que vcê perca sua consciência, você pode ver ele preparando o golpe de misericórdia. Sua aventura acaba aqui!
 			</p>
 		</div>
 		<div id="text10" class="hidden">
@@ -538,15 +538,13 @@
 		</div>
 	</main>
 	<script type="text/javascript">
-		function show(n) {
-			for (var i=0; i<=83; i++) {
-				console.log(i)
-				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
-			}
-		}
+
 		let personagemString = localStorage.getItem('personagem')
 		let personagemObj = JSON.parse(personagemString)
-		setTimeout(() => {	
+		function montarHeader () {
+			let personagemString = localStorage.getItem('personagem')
+			let personagemObj = JSON.parse(personagemString)
+			setTimeout(() => {	
 			document.querySelector('#ficha-aventura').innerHTML = `
 				<div class="cabecalho">
 					<p>Raça: ${personagemObj.nome}</p>
@@ -562,74 +560,93 @@
 				</div>
 			`
 		}, 1000);
+		
+		}
+
+		function show(n) {
+			for (var i=0; i<=83; i++) {
+				console.log(i)
+				document.getElementById("text" + i).className = (i==n? "shown" : "hidden");
+			}
+		}
+		// let personagemString = localStorage.getItem('personagem')
+		// let personagemObj = JSON.parse(personagemString)
+		// setTimeout(() => {	
+		// 	document.querySelector('#ficha-aventura').innerHTML = `
+		// 		<div class="cabecalho">
+		// 			<p>Raça: ${personagemObj.nome}</p>
+		// 			<p>Classe: ${personagemObj.classe}</p>
+		// 			<p>Dom: ${personagemObj.dom}</p>
+		// 			<p>Vantagem: ${personagemObj.vantagem}</p>
+		// 		</div>	
+		// 		<div class="cabecalho">
+		// 			<p>Combate: ${personagemObj.combate}</p>
+		// 			<p>Habilidade: ${personagemObj.habilidade}</p>
+		// 			<p>PV: ${personagemObj.pv}</p>
+		// 			<p>PM: ${personagemObj.pm}</p>
+		// 		</div>
+		// 	`
+		// }, 1000);
+
+	
+		montarHeader ()
+
 
 		function atacarMagia () {
-			
 			    let personagemString = localStorage.getItem('personagem')
 				let personagemObj = JSON.parse(personagemString)
-
 			if (personagemObj.classe==="clerigo" && personagemObj.pm >=2) {
-			
-					document.querySelector ('#combate-heroi').innerHTML = `
-					<p>Combate: ${personagemObj.combate}</p>
-					<p>Habilidade: ${personagemObj.habilidade}</p>
-					<p>PV: ${personagemObj.pv}</p>
-					<p>PM: ${personagemObj.pm - 2 }</p>
-					<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
-					<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
-					`
-					let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
-
-					localStorage.setItem('personagem', JSON.stringify(personagemModificado))
-					// implementar function
-					chamaSagrada()
-					
-				
+				document.querySelector ('#combate-heroi').innerHTML = `
+				<p>Combate: ${personagemObj.combate}</p>
+				<p>Habilidade: ${personagemObj.habilidade}</p>
+				<p>PV: ${personagemObj.pv}</p>
+				<p>PM: ${personagemObj.pm - 2 }</p>
+				<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+				<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+				`
+				//incluir dom e vantagem aqui e em todos os ataques)
+				let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
+				localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+				chamaSagrada()
 			}
 			else if (personagemObj.classe==="clerigo" && personagemObj.pm <2) {
 				alert ('você nao tem poder aqui')
 			}
-
 			if (personagemObj.classe==="guerreiro" && personagemObj.pm >=2) {
-			
-			document.querySelector ('#combate-heroi').innerHTML = `
-			<p>Combate: ${personagemObj.combate}</p>
-			<p>Habilidade: ${personagemObj.habilidade}</p>
-			<p>PV: ${personagemObj.pv}</p>
-			<p>PM: ${personagemObj.pm - 2 }</p>
-			<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
-			<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
-			`
-			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+				document.querySelector ('#combate-heroi').innerHTML = `
+				<p>Combate: ${personagemObj.combate}</p>
+				<p>Habilidade: ${personagemObj.habilidade}</p>
+				<p>PV: ${personagemObj.pv}</p>
+				<p>PM: ${personagemObj.pm - 2 }</p>
+				<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+				<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+				`
+				let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 
-			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
-			// implementar function
-			ataquePoderoso()
-		
-			}
-			else if (personagemObj.classe==="guerreiro" && personagemObj.pm <2) {
-			alert ('você nao tem poder aqui')
+				localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+				ataquePoderoso()
 			}
 
+				else if (personagemObj.classe==="guerreiro" && personagemObj.pm <2) {
+				alert ('você nao tem poder aqui')
+			}
 			if (personagemObj.classe==="ladino" && personagemObj.pm >=2) {
-			
-			document.querySelector ('#combate-heroi').innerHTML = `
-			<p>Combate: ${personagemObj.combate}</p>
-			<p>Habilidade: ${personagemObj.habilidade}</p>
-			<p>PV: ${personagemObj.pv}</p>
-			<p>PM: ${personagemObj.pm - 2 }</p>
-			<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
-			<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
-			`
-			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+				document.querySelector ('#combate-heroi').innerHTML = `
+				<p>Combate: ${personagemObj.combate}</p>
+				<p>Habilidade: ${personagemObj.habilidade}</p>
+				<p>PV: ${personagemObj.pv}</p>
+				<p>PM: ${personagemObj.pm - 2 }</p>
+				<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
+				<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
+				`
+				let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 
-			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
-			// implementar function
-			ataqueFurtivo()
-		
+				localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+				ataqueFurtivo()
+
 			}
 			else if (personagemObj.classe==="ladino" && personagemObj.pm <2) {
-			alert ('você nao tem poder aqui')
+				alert ('você nao tem poder aqui')
 			}
 
 			if (personagemObj.classe==="mago" && personagemObj.pm >=2) {
@@ -642,11 +659,10 @@
 			<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
 			<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
 			`
-			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2}
+			let personagemModificado = {classe: personagemObj.classe, nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv, pm:personagemObj.pm - 2, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 
 			localStorage.setItem('personagem', JSON.stringify(personagemModificado))
-			// implementar function
-			misselMagico()
+				misselMagico()
 
 			}
 			else if (personagemObj.classe==="mago" && personagemObj.pm <2) {
@@ -654,11 +670,10 @@
 			}
 		}
 
-
 		function atacar(){
 			let inimigoString = localStorage.getItem('inimigo')
 			let inimigoObj = JSON.parse(inimigoString)
-			// document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - inimigoObj.combate}</p>	
+	
 			let rolagemDado =	function ()  {return Math.floor(Math.random() * (6 - 1 + 1) + 1)}
 			let diferencaCombate = (parseInt(personagemObj.combate) + rolagemDado()) - (parseInt(inimigoObj.combate) + rolagemDado())
 			if (diferencaCombate > 0){
@@ -668,8 +683,18 @@
 				<p>Habilidade: ${inimigoObj.habilidade}</p>
 				<p>PV: ${inimigoObj.pv - diferencaCombate}</p>
 				`
-				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate}
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+				montarHeader()
+
+			if (inimigoModificado.pv <= 0){
+				
+					let arena = document.querySelector ('#combate-arena')
+					arena.innerHTML = `
+					<p>Você venceu! </p>
+					<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
+					`
+			}
 			}
 			else if (diferencaCombate < 0) {
 				diferencaCombate = Math.abs(diferencaCombate)
@@ -689,8 +714,17 @@
 					<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
 					<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
 					`
-					let personagemModificado = {nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv - diferencaCombate}
+					let personagemModificado = {nome:personagemObj.nome, combate:personagemObj.combate, habilidade:personagemObj.habilidade, pv:personagemObj.pv - diferencaCombate, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 					localStorage.setItem('personagem', JSON.stringify(personagemModificado))
+					montarHeader()
+
+					if (personagemObj.pv <= 0){
+						let arena = document.querySelector ('#combate-arena')
+						arena.innerHTML = `
+						<p>Você Perdeu! </p>
+						<button onclick="show(${inimigoObj.proximoPerdeu})">clique aqui para continuar.</button>
+						`
+					}
 				}
 				else {
 					alert ('errou')
@@ -709,10 +743,18 @@
 				<p>Nome: ${inimigoObj.nome}</p>
 				<p>Combate: ${inimigoObj.combate}</p>
 				<p>Habilidade: ${inimigoObj.habilidade}</p>
-				<p>PV: ${inimigoObj.pv - diferencaCombate}</p>
+				<p>PV: ${inimigoObj.pv < 3 ? 0 : inimigoObj.pv - diferencaCombate}</p>
 				`
-				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate}
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+				montarHeader()
+			if (inimigoModificado.pv <=0){
+					let arena = document.querySelector ('#combate-arena')
+					arena.innerHTML = `
+					<p>Você venceu! </p>
+					<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
+					`
+			}
 			}
 			else if(diferencaCombate > 0){
 				alert('faio')
@@ -728,8 +770,9 @@
 				<p>Habilidade: ${inimigoObj.habilidade}</p>
 				<p>PV: ${inimigoObj.pv < 3 ? 0 : inimigoObj.pv - 3}</p>
 				`
-				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - 3, proximo: inimigoObj.proximo}
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - 3, proximo: inimigoObj.proximo, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+				montarHeader()
 
 			if (inimigoModificado.pv <=0){
 				let arena = document.querySelector ('#combate-arena')
@@ -738,14 +781,12 @@
 				<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
 				`
 			}
-
-
 		}
 
 		function ataqueFurtivo(){
 			let inimigoString = localStorage.getItem('inimigo')
 			let inimigoObj = JSON.parse(inimigoString)
-			// document.querySelector ('#combate-inimigo').innerHTML = `<p>Combate: ${personagemObj.combate - inimigoObj.combate}</p>	
+
 			let rolagemDado =	function ()  {return Math.floor(Math.random() * (6 - 1 + 1) + 1)}
 			let diferencaCombate = (parseInt(personagemObj.combate) + rolagemDado()+ rolagemDado()) - (parseInt(inimigoObj.combate) + rolagemDado() + rolagemDado())
 			if (diferencaCombate > 0){
@@ -753,10 +794,19 @@
 				<p>Nome: ${inimigoObj.nome}</p>
 				<p>Combate: ${inimigoObj.combate}</p>
 				<p>Habilidade: ${inimigoObj.habilidade}</p>
-				<p>PV: ${inimigoObj.pv - diferencaCombate}</p>
+				<p>PV: ${inimigoObj.pv < 3 ? 0 : inimigoObj.pv - diferencaCombate}</p>
 				`
-				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate}
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - diferencaCombate, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+				montarHeader()
+
+			if (inimigoModificado.pv <=0){
+				let arena = document.querySelector ('#combate-arena')
+				arena.innerHTML = `
+				<p>Você venceu! </p>
+				<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
+				`
+			}
 			}
 			else if(diferencaCombate > 0){
 				alert('faio')
@@ -772,8 +822,9 @@
 				<p>Habilidade: ${inimigoObj.habilidade}</p>
 				<p>PV: ${inimigoObj.pv < 4 ? 0 : inimigoObj.pv - 4}</p>
 				`
-				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - 4, proximo: inimigoObj.proximo}
+				let inimigoModificado = {nome:inimigoObj.nome, combate:inimigoObj.combate, habilidade:inimigoObj.habilidade, pv:inimigoObj.pv - 4, proximo: inimigoObj.proximo, dom:personagemObj.dom, vantagem: personagemObj.vantagem}
 				localStorage.setItem('inimigo', JSON.stringify(inimigoModificado))
+				montarHeader()
 
 			if (inimigoModificado.pv <=0){
 				let arena = document.querySelector ('#combate-arena')
@@ -782,7 +833,6 @@
 				<button onclick="show(${inimigoObj.proximo})">clique aqui para continuar.</button>
 				`
 			}
-
 		}
 		
 		function iniciaLuta(inimigo) {
@@ -795,20 +845,15 @@
 					<button id="ataqueHeroi" onClick="atacar()">Ataque</button>
 					<button id="ataqueHeroi" onClick="atacarMagia()">Ataque Magico</button>
 					`
-					// }, 20);
-
 					localStorage.setItem('inimigo', JSON.stringify(inimigo))
 					let inimigoString = localStorage.getItem('inimigo')
        				let inimigoObj = JSON.parse(inimigoString)
-					// let inimigoVez = inimigo
 						document.querySelector ('#combate-inimigo').innerHTML = `
 						<p>Nome: ${inimigoObj.nome}</p>
 						<p>Combate: ${inimigoObj.combate}</p>
 						<p>Habilidade: ${inimigoObj.habilidade}</p>
 						<p>PV: ${inimigoObj.pv}</p>
 						`
-						
-					}
-		
+		}		
 	</script>
 </body>
